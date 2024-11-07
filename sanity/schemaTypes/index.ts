@@ -68,6 +68,26 @@ export const offerings: SchemaTypeDefinition = {
   ],
 }
 
+export const featured: SchemaTypeDefinition = {
+  name: 'featured',
+  title: 'Featured',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+  ],
+}
+
 export const services: SchemaTypeDefinition = {
   name: 'services',
   title: 'Services',
@@ -89,5 +109,5 @@ export const services: SchemaTypeDefinition = {
 }
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [role, careerSummary, traits, offerings, services],
+  types: [role, careerSummary, traits, offerings, featured, services],
 }

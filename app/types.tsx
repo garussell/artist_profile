@@ -1,6 +1,5 @@
 import { TypedObject } from "sanity";
 
-// types.ts
 export interface Role {
   _id: string;
   title: string;
@@ -23,6 +22,12 @@ export interface Offerings {
   content: TypedObject[];
 }
 
+export interface Featured {
+  _id: string;
+  title: string;
+  image: string;
+}
+
 export interface Services {
   _id: string;
   service: string;
@@ -34,5 +39,7 @@ export interface Data {
   careerSummaries: CareerSummary[];
   traits: Traits[];
   offerings: Offerings[];
+  featured: Featured[];
   services: Services[];
 }
+

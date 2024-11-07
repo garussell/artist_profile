@@ -5,11 +5,12 @@ import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 
 const fetchData = async (): Promise<Data> => {
-  const [roles, careerSummaries, traits, offerings, services] = await Promise.all([
+  const [roles, careerSummaries, traits, offerings, featured, services] = await Promise.all([
     client.fetch(`*[_type == "role"]`),
     client.fetch(`*[_type == "careerSummary"]`),
     client.fetch(`*[_type == "traits"]`),
     client.fetch(`*[_type == "offerings"]`),
+    client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
     client.fetch(`*[_type == "services"]`),
   ]);
 
@@ -18,13 +19,14 @@ const fetchData = async (): Promise<Data> => {
     careerSummaries,
     traits,
     offerings,
+    featured,
     services,
   };
 };
 
 export default async function Home() {
   const data = await fetchData();
-
+  console.log("Data", data);
   return (
     <div className="container">
         <section>
@@ -75,9 +77,16 @@ export default async function Home() {
         <section>
           <h2>featured work</h2>
           <ul>
-            <li>Blockframe, Inc.</li>
-            <li>Turing</li>
-            <li>Freelance</li>
+            {data.featured.map(feature => (
+              <li key={feature._id}>
+                <h2>{feature.title}</h2>
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  // className="absolute inset-0 object-cover h-full w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" 
+                />
+              </li>
+            ))}
           </ul>
           <div><Link href="/projects">More</Link></div>
         </section>
