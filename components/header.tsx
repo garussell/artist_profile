@@ -6,20 +6,20 @@ export default function Header() {
       <nav className="container mx-auto p-4">
         <ul className="flex justify-between items-center">
           <li className="mr-auto">
-            <Link href="/" className="hover:text-gray-400">Bear and the Beasts</Link>
+            <Link href="/" className="hover:text-gray-400">Allen Russell</Link>
           </li>
           <div className="flex space-x-4">
             <li>
-              <Link href="/shows" className="hover:text-gray-400">Shows</Link>
+              <Link href="/about" className="hover:text-gray-400">About</Link>
             </li>
             <li>
-              <Link href="/gallery" className="hover:text-gray-400">Gallery</Link>
+              <Link href="/blog" className="hover:text-gray-400">Blog</Link>
             </li>
             <li>
-              <Link href="/merch" className="hover:text-gray-400">Merch</Link>
+              <Link href="/services" className="hover:text-gray-400">Services</Link>
             </li>
             <li>
-              <Link href="/discography" className="hover:text-gray-400">Discography</Link>
+              <Link href="/projects" className="hover:text-gray-400">Projects</Link>
             </li>
             <li>
               <Link href="/contact" className="hover:text-gray-400">Contact</Link>
