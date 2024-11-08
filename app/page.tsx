@@ -26,76 +26,83 @@ const fetchData = async (): Promise<Data> => {
 
 export default async function Home() {
   const data = await fetchData();
-  console.log("Data", data);
+  // console.log("Data", data);
   return (
     <div className="container">
-        <section>
-            {data.roles.map(role => (
-              <div key={role._id}>
-                <h1>{role.title}</h1>
-                <h2>{role.subtitle}</h2>
+        <section className="w-full mt-10 mb-20">
+            {data.roles.map((role, index) => (
+              <div key={`${role._id}-${index}`} className="uppercase flex justify-end w-full">
+                <div className="prose prose-sky text-right">
+                  <h1>{role.title}</h1>
+                  <h2>{role.subtitle}</h2>
+                </div>
               </div>
             ))}
         </section>
-
+        <hr className="w-screen" />
         <section>
-          <ul>
+          <div className="list-none flex justify-center text-center m-10">
             {data.careerSummaries.map(summary => (
-              <li key={summary._id}>{summary.content[0]?.children[0]?.text}</li>
+              <p key={summary._id}>{summary.content[0]?.children[0]?.text}</p>
             ))}
-          </ul>
-          <div>
-            <div><Link href="/about">Learn More</Link></div>
-            <div><Link href="/contact">Contact</Link></div>
+          </div>
+          <div className="flex justify-center text-center ml-12">
+            <div className="mr-12 border-2 p-2 rounded-lg bg-white text-black hover:bg-gray-200"><Link href="/about">Learn More</Link></div>
+            <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black"><Link href="/contact">Contact</Link></div>
           </div>
         </section>
 
         <section>
-          <ul>
-            {data.traits.map(trait => (
-              <li key={trait._id}>{trait.trait}</li>
+          <div className="prose m-20">
+            {data.traits.map((trait, index) => (
+              <h2 key={`${trait._id}-${index}`}>{trait.trait}</h2>
             ))}
-          </ul>
+          </div>
         </section>
 
-        <section>
-          <h2>What I Offer</h2>
-          <hr />
-          <ul>
-            {data.offerings.map(offering => (
-              <li key={offering._id}>
-                <h2>{offering.title}</h2>
-                <div>
-                  <PortableText value={offering.content} />
-                </div>
-                <hr />
-              </li>
-            ))}
-          </ul>
+        <section className="flex justify-end">
+          <div className="prose prose-sky">
+            <h3>What I Offer</h3>
+            <hr className="w-full" />
+            <ul className="list-none">
+              {data.offerings.map((offering, index) => (
+                <li key={`${offering._id}-${index}`}>
+                  <h4>{offering.title}</h4>
+                  <div>
+                    <PortableText value={offering.content} />
+                  </div>
+                  <hr className="w-full" />
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
-        <section>
-          <h2>featured work</h2>
-          <ul>
-            {data.featured.map(feature => (
-              <li key={feature._id}>
-                <h2>{feature.title}</h2>
-                <img 
-                  src={feature.image} 
-                  alt={feature.title} 
-                  // className="absolute inset-0 object-cover h-full w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" 
-                />
-              </li>
-            ))}
-          </ul>
-          <div><Link href="/projects">More</Link></div>
+        <section className="min-h-screen flex flex-col justify-center items-center">
+          <div className="prose text-center max-w-screen-lg w-full">
+            <h3 className="mt-20 mb-20 ml-6">featured work</h3>
+            <ul className="list-none space-y-6">
+              {data.featured.map((feature, index) => (
+                <li key={`${feature._id}-${index}`} className="relative group">
+                  <h2 className="m-0">{feature.title}</h2>
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title} 
+                    className="absolute inset-0 object-cover opacity-0 group-hover:opacity-50 transition-opacity duration-300 ease-in-out"
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4"><Link href="/projects">More</Link></div>
+          </div>
         </section>
+
 
         <section>
           <h2>Services</h2>
-          <ul>
-            {data.services.map(service => (
-              <li key={service._id}>
+          <ul className="list-none">
+            {data.services.map((service, index) => (
+              <li key={`${service._id}-${index}`}>
                 {service.service} - {service.price} 
               </li>
             ))}

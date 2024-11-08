@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="bg-gray-800 text-white">
-      <nav className="container mx-auto p-4">
-        <ul className="flex justify-between items-center">
+    <header className="text-white">
+      <nav className="container">
+        <ul className="flex justify-between items-center p-8">
           <li className="mr-auto">
             <Link href="/" className="hover:text-gray-400">Allen Russell</Link>
           </li>
@@ -27,6 +27,7 @@ export default function Header() {
           </div>
         </ul>
       </nav>
+      <hr className="w-screen" />
     </header>
   );
 }
