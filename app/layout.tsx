@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
+import ScrollUpButton from "@/components/scrollUpButton";
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <ScrollUpButton />
         </div>
       </body>
     </html>

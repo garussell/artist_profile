@@ -27,6 +27,7 @@ const fetchData = async (): Promise<Data> => {
 export default async function Home() {
   const data = await fetchData();
   // console.log("Data", data);
+
   return (
     <div className="container">
         <section className="w-full mt-10 mb-20">
@@ -47,8 +48,8 @@ export default async function Home() {
             ))}
           </div>
           <div className="flex justify-center text-center ml-12">
-            <div className="mr-12 border-2 p-2 rounded-lg bg-white text-black hover:bg-gray-200"><Link href="/about">Learn More</Link></div>
-            <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black"><Link href="/contact">Contact</Link></div>
+            <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-gray-200 duration-500"><Link href="/about">Learn More</Link></div>
+            <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500"><Link href="/contact">Contact</Link></div>
           </div>
         </section>
 
@@ -84,7 +85,7 @@ export default async function Home() {
             <ul className="list-none space-y-6">
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
-                  <h2 className="m-0">{feature.title}</h2>
+                  <h2 className="m-0 hover:text-gray-200 hover:scale-105 duration-500">{feature.title}</h2>
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
@@ -97,7 +98,7 @@ export default async function Home() {
               ))}
             </ul>
           </div>
-          <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black w-16"><Link href="/projects">More</Link></div>
+          <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500 w-16"><Link href="/projects">More</Link></div>
         </section>
 
         <section className="flex justify-end">
@@ -107,12 +108,12 @@ export default async function Home() {
               {data.services.map((service, index) => (
                 <li key={`${service._id}-${index}`} className="flex justify-between">
                   <span>{service.service}</span>
-                  <span className="ml-30">{service.price}</span>
+                  <span className="ml-20">{service.price}</span>
                 </li>
               ))}
               <li className="flex justify-between">
                 <span>Book a job on Fiverr</span>
-                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" className="text-blue-500">Fiverr</Link>
+                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500">Fiverr</Link>
               </li>
             </ul>
           </div>
