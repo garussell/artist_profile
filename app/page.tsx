@@ -78,17 +78,20 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-center items-center">
-          <div className="prose text-center max-w-screen-lg w-full">
+        <section className="min-h-screen flex flex-col justify-start items-left">
+          <div className="prose text-left max-w-screen-lg w-full">
             <h3 className="mt-20 mb-20 ml-6">featured work</h3>
             <ul className="list-none space-y-6">
               {data.featured.map((feature, index) => (
-                <li key={`${feature._id}-${index}`} className="relative group">
+                <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
                   <h2 className="m-0">{feature.title}</h2>
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
-                    className="absolute inset-0 object-cover opacity-0 group-hover:opacity-50 transition-opacity duration-300 ease-in-out"
+                    className="w-2/3 ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
+                    style={{ 
+                      transform: `translateX(75%) translateY(-${index * 30}%)`, 
+                    }}
                   />
                 </li>
               ))}
