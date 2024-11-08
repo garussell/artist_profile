@@ -80,7 +80,7 @@ export default async function Home() {
 
         <section className="min-h-screen flex flex-col justify-start items-left">
           <div className="prose text-left max-w-screen-lg w-full">
-            <h3 className="mt-20 mb-20 ml-6">featured work</h3>
+            <h3 className="mt-20 mb-10 ml-8">featured work</h3>
             <ul className="list-none space-y-6">
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
@@ -96,21 +96,26 @@ export default async function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4"><Link href="/projects">More</Link></div>
           </div>
+          <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black w-16"><Link href="/projects">More</Link></div>
         </section>
 
-
-        <section>
-          <h2>Services</h2>
-          <ul className="list-none">
-            {data.services.map((service, index) => (
-              <li key={`${service._id}-${index}`}>
-                {service.service} - {service.price} 
+        <section className="flex justify-end">
+          <div className="prose mb-10">
+            <h3>Services</h3>
+            <ul className="grid grid-cols-1 list-none">
+              {data.services.map((service, index) => (
+                <li key={`${service._id}-${index}`} className="flex justify-between">
+                  <span>{service.service}</span>
+                  <span className="ml-30">{service.price}</span>
+                </li>
+              ))}
+              <li className="flex justify-between">
+                <span>Book a job on Fiverr</span>
+                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" className="text-blue-500">Fiverr</Link>
               </li>
-            ))}
-            <li>Book a job on Fiverr - <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective">Fiverr</Link></li>
-          </ul>
+            </ul>
+          </div>
         </section>
     </div>
   );

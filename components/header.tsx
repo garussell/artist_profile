@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="container">
         <ul className="flex justify-between items-center p-8">
           <li className="mr-auto">
-            <Link href="/" className="hover:text-gray-400">Allen Russell</Link>
+            <Link href="/" className="hover:text-gray-400 border-4 p-2 rounded-lg">Allen Russell</Link>
           </li>
           <div className="flex space-x-4">
             <li>
