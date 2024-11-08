@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub, faGitlab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -38,6 +38,7 @@ export default function Footer() {
         </div>
         <hr className="w-screen" />
         <div className="text-center mt-8 text-sm">
+          <p>Built with Next/Sanity</p>
           <p>Gary Allen Russell Jr 2024 &copy;</p>
         </div>
       </div>

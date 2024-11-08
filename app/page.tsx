@@ -1,7 +1,9 @@
+"use server";
+
 import React from 'react';
+import { PortableText } from '@portabletext/react';
 import { client } from '../sanity/lib/client';
 import { Data } from './types';
-import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 
 const fetchData = async (): Promise<Data> => {
@@ -26,7 +28,6 @@ const fetchData = async (): Promise<Data> => {
 
 export default async function Home() {
   const data = await fetchData();
-  // console.log("Data", data);
 
   return (
     <div className="container">
