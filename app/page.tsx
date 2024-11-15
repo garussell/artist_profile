@@ -5,7 +5,6 @@ import { PortableText } from '@portabletext/react';
 import { client } from '../sanity/lib/client';
 import { Data } from './types';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const fetchData = async (): Promise<Data> => {
   const [roles, careerSummaries, traits, offerings, featured, services] = await Promise.all([
