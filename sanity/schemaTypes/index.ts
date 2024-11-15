@@ -1,8 +1,8 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
-const album: SchemaTypeDefinition = {
-  name: 'album',
-  title: 'Album',
+export const role: SchemaTypeDefinition = {
+  name: 'role',
+  title: 'Role',
   type: 'document',
   fields: [
     {
@@ -12,36 +12,45 @@ const album: SchemaTypeDefinition = {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'coverArt',
-      title: 'Cover Art',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string',
-        },
-      ],
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+      validation: Rule => Rule.required(),
     },
-    {
-      name: 'songs',
-      title: 'Songs',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'song' }] }],
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: { source: 'title' },
-    }
   ],
 }
 
-const song: SchemaTypeDefinition = {
-  name: 'song',
-  title: 'Song',
+export const careerSummary: SchemaTypeDefinition = {
+  name: 'careerSummary',
+  title: 'Career Summary',
+  type: 'document',
+  fields: [
+    {
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+  ],
+}
+
+export const traits: SchemaTypeDefinition = {
+  name: 'traits',
+  title: 'Traits',
+  type: 'document',
+  fields: [
+    {
+      name: 'trait',
+      title: 'Trait',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+  ],
+}
+
+export const offerings: SchemaTypeDefinition = {
+  name: 'offerings',
+  title: 'Offerings',
   type: 'document',
   fields: [
     {
@@ -51,46 +60,54 @@ const song: SchemaTypeDefinition = {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'artwork',
-      title: 'Artwork/Photo',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt',
-          type: 'string',
-        },
-      ],
-      validation: Rule => Rule.required(),
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
-    {
-      name: 'album',
-      title: 'Album',
-      type: 'reference',
-      to: [{ type: 'album' }],
-    },
-    {
-      name: 'audio',
-      title: 'Audio',
-      type: 'file',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: { source: 'title' },
-    }
   ],
 }
-// shows
-// artists in the band profiles
-// photo gallery
-// videos
-// contact form
-// merch
-// about
+
+export const featured: SchemaTypeDefinition = {
+  name: 'featured',
+  title: 'Featured',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+  ],
+}
+
+export const services: SchemaTypeDefinition = {
+  name: 'services',
+  title: 'Services',
+  type: 'document',
+  fields: [
+    {
+      name: 'service',
+      title: 'Service',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+  ],
+}
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [album, song],
+  types: [role, careerSummary, traits, offerings, featured, services],
 }

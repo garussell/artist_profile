@@ -1,10 +1,26 @@
+@font-face {
+  font-family: 'Viga';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Viga-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bowlby';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/BowlbyOneSC-Regular.ttf') format('truetype');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +33,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-viga-reg), Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
