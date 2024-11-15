@@ -34,6 +34,35 @@ export interface Services {
   price: string;
 }
 
+interface TextBlock {
+  _key: string;
+  children: { text: string }[];
+}
+
+export interface CurriculumVitae {
+  _id: string;
+  intro: TextBlock[];
+  skills: {
+    category: string;
+    skillsList: string[];
+  }[];  
+  experiences: {
+    company: string;
+    jobTitle: string;
+    datesWorked: string;
+    duties: string[];
+  }[];  
+  education: {
+    schoolName: string;
+    degree: string;
+  }[];  
+  myWorld: {
+    category: string;
+    description: string;
+    images: { asset: { _ref: string } }[];  
+  }[];  
+}
+
 export interface Data {
   roles: Role[];
   careerSummaries: CareerSummary[];
