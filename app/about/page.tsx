@@ -1,3 +1,5 @@
+
+
 import Image from 'next/image';
 import profilePic from '../../public/profilePic.png'; 
 import digitalEarth from '../../public/digitalEarth.jpg';
