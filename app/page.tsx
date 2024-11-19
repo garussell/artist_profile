@@ -30,8 +30,8 @@ export default async function Home() {
   const data = await fetchData();
 
   return (
-    <div className="container">
-        <section className="w-full mt-10 mb-20">
+    <div className="mr-10">
+        <section className="mt-10 mb-20">
             {data.roles.map((role, index) => (
               <div key={`${role._id}-${index}`} className="uppercase flex justify-end w-full">
                 <div className="prose prose-sky text-right">

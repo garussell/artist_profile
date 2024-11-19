@@ -23,6 +23,7 @@ import {
   faFigma,
 } from '@fortawesome/free-brands-svg-icons';
 import { faGem } from '@fortawesome/free-regular-svg-icons';
+import { urlFor } from '@/sanity/lib/image';
 
 const fetchData = async (): Promise<CurriculumVitae> => {
   const curriculumVitae = await client.fetch(`*[_type == "curriculumVitae"]`);
@@ -94,10 +95,9 @@ export default async function About() {
           </div>
         </div>
       </section>
-
       <section className="w-full flex flex-col items-start p-8">
         <div className="prose text-left max-w-screen-lg w-full p-4">
-          <h4>Skills</h4>
+          <h3>Skills</h3>
           {data?.skills ? (
             <div className="flex flex-col">
               {data.skills.map((skill, index) => (
@@ -119,6 +119,100 @@ export default async function About() {
                 <FontAwesomeIcon icon={skill.icon} size="4x" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="w-full flex flex-col items-start p-8 mt-10">
+        <div className="prose text-left max-w-screen-lg w-full p-4">
+          <h2 className="m-0">Experience</h2>
+          {data?.experiences ? (
+            <div className="flex flex-col">
+              {data.experiences.map((experience, index) => (
+                <div className="flex flex-col" key={index}>
+                  <h4>{experience.company}</h4>
+                  <div className="flex flex-row">
+                    <h6>&quot;{experience.jobTitle}&quot;</h6>
+                    <p className="ml-10 mt-1">{experience.datesWorked}</p>
+                  </div>
+                  <ul className="m-0">
+                    {experience.duties.map((duty, dutyIndex) => (
+                      <li key={dutyIndex}>{duty}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No experience found.</p>
+          )}
+        </div>
+      </section>
+      <section className="w-full flex flex-col items-end p-8 mt-10">
+        <div className="prose text-right max-w-screen-lg w-full p-4">
+          <h2 className="m-0">Education</h2>
+          {data?.education ? (
+            <div className="flex flex-col">
+              {data.education.map((education, index) => (
+                <div className="flex flex-col" key={index}>
+                  <h4>{education.schoolName}</h4>
+                  <h6>{education.degree}</h6>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No education found.</p>
+          )}
+        </div>
+      </section>
+      <section className="w-full flex flex-col items-center p-8 mt-10">
+        <div className="prose text-center max-w-screen-lg w-full p-4">
+          <h2>My World</h2>
+          {data?.myWorld ? (
+            <div className="flex flex-col gap-20">
+              {data.myWorld.map((world, index) => (
+                <div
+                  className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-40 items-center`}
+                  key={index}
+                >
+                  <div className={`w-1/2 ${index % 2 === 0 ? "order-1" : "order-2"}`}>
+                    {world.images.map((image, imgIndex) => (
+                      <Image 
+                        key={imgIndex} 
+                        src={urlFor(image.asset._ref).url()} 
+                        alt={`${world.category} image`} 
+                        className="w-full h-auto"
+                        width={500}
+                        height={300} 
+                      />
+                    ))}
+                  </div>
+                  <div className="w-1/2 text-left">
+                    <h3>{world.category}</h3>
+                    <p>{world.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No world found.</p>
+          )}
+        </div>
+      </section>
+      <section className="m-20 mb-40">
+        <div className="prose text-center max-w-screen-lg w-full p-4">
+          <h3>Audio-Visual Editing</h3>
+          <div className="w-full">
+            <iframe 
+              width="640" 
+              height="360" 
+              src="https://www.youtube.com/embed/OaHSILtvV5o?si=WoQSOAqgNp3pp-xR" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen>
+
+            </iframe>
           </div>
         </div>
       </section>
