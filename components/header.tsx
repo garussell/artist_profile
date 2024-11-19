@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Header() {
   return (
     <header className="text-white">
-      <nav className="container">
+      <nav className="mr-4">
         <ul className="flex justify-between items-center p-8">
           <li className="mr-auto">
             <Link href="/" className="hover:text-black hover:bg-gray-200 duration-500 border-4 p-2 rounded-lg">Allen Russell</Link>
