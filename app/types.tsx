@@ -43,8 +43,7 @@ export interface CurriculumVitae {
   _id: string;
   intro: TextBlock[];
   skills: {
-    category: string;
-    skillsList: string[];
+    skillsList: string;
   }[];  
   experiences: {
     company: string;

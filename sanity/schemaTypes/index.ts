@@ -134,16 +134,9 @@ export const curriculumVitae: SchemaTypeDefinition = {
           title: 'Skill Category',
           fields: [
             {
-              name: 'category',
-              title: 'Category',
-              type: 'string',
-              validation: Rule => Rule.required(),
-            },
-            {
               name: 'skillsList',
               title: 'Skills List',
-              type: 'array',
-              of: [{ type: 'string' }],
+              type: 'string',
               validation: Rule => Rule.required(),
             },
           ],
