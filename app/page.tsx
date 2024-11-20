@@ -49,7 +49,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="flex justify-center text-center ml-12">
-            <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-gray-200 duration-500"><Link href="/about">Learn More</Link></div>
+            <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-black hover:text-white duration-500"><Link href="/about">Learn More</Link></div>
             <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500"><Link href="/contact">Contact</Link></div>
           </div>
         </section>

@@ -17,11 +17,19 @@ const config: Config = {
         bowlby: ["Bowlby One SC", "sans-serif"],
         viga: ["Viga", "sans-serif"],
       },
-      typography: (theme: (path: string) => any) => ({
+      animation: {
+        marquee: "marquee 10s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-55%)" },
+        },
+      },
+      typography: (theme: (path: string) => string) => ({
         DEFAULT: {
           css: {
             'h1, h2, h3, h4, h5, h6, p, li, strong': {
-              // fontFamily: theme('fontFamily.bowlby').join(','),
               color: theme('colors.foreground'),
             },
             h1: {
@@ -43,7 +51,7 @@ const config: Config = {
               fontSize: theme('fontSize.xl'),
             },
             p: {
-              fontFamily: theme('fontFamily.viga').join(','),
+              fontFamily: theme('fontFamily.viga'),
               fontWeight: theme('fontWeight.normal'),
             },
           }
