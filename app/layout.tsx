@@ -34,9 +34,9 @@ export default function RootLayout({
       <body
         className={`${bowlbyOne.variable} ${vigaReg.variable} antialiased`}
       >
-        <div className="layout-container">
+        <div className="layout-container flex flex-col min-h-screen">
           <Header />
-          <main>{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
           <ScrollUpButton />
         </div>
