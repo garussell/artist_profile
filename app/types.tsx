@@ -62,6 +62,26 @@ export interface CurriculumVitae {
   }[];  
 }
 
+export interface BlogPost {
+  _id: string;
+  title: string;
+  publishedAt: string;
+  excerpt: string;
+  content: TypedObject[];
+  slug: {
+    current: string;
+  };
+}
+
+interface Params {
+  slug: string;
+}
+
+export interface BlogContentProps {
+  params: Params;
+}
+
+
 export interface Data {
   roles: Role[];
   careerSummaries: CareerSummary[];
