@@ -343,6 +343,7 @@ export const professionalProject: SchemaTypeDefinition = {
       name: 'secondaryImage',
       title: 'Secondary Image',
       type: 'image',
+      validation: Rule => Rule.required(),
     },
   ],
 }

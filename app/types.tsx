@@ -93,7 +93,7 @@ export interface ProfessionalProject {
   technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>;  
   link: string;
   heroImage: string;
-  secondaryImage?: string; 
+  secondaryImage: string; 
   slug: {
     current: string;
   };
@@ -107,7 +107,7 @@ export interface PersonalProject {
   technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
   link: string;
   heroImage: string;
-  secondaryImage?: string; 
+  secondaryImage: string; 
   slug: {
     current: string;
   };
@@ -121,7 +121,7 @@ export interface TuringProject {
   technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
   link: string;
   heroImage: string;
-  secondaryImage?: string; 
+  secondaryImage: string; 
   slug: {
     current: string;
   };

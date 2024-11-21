@@ -6,6 +6,7 @@ import { Projects } from '../types';
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
+import Contact from '../contact/page';
 
 const fetchData = async (): Promise<Projects> => {
   const proProjects = await client.fetch(`
@@ -121,7 +122,7 @@ export default function ProjectsPage() {
                 />
                 <p>{data.proProjects[selectedProProjectIndex].description.slice(0, 150)}{data.proProjects[selectedProProjectIndex].description.length > 150 && '...'}</p>
                 <Link href={`/projects/${data.proProjects[selectedProProjectIndex].slug.current}`} passHref>
-                  <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-white hover:text-black duration-500">
+                  <button className="mt-4 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                     Read More
                   </button>
                 </Link>
@@ -164,7 +165,7 @@ export default function ProjectsPage() {
                 />
                 <p>{data.persProjects[selectedPersProjectIndex].description.slice(0, 150)}{data.persProjects[selectedPersProjectIndex].description.length > 150 && '...'}</p>
                 <Link href={`/projects/${data.persProjects[selectedPersProjectIndex].slug.current}`} passHref>
-                  <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-white hover:text-black duration-500">
+                  <button className="mt-4 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                     Read More
                   </button>
                 </Link>
@@ -207,7 +208,7 @@ export default function ProjectsPage() {
                 />
                 <p>{data.turingProjects[selectedTuringProjectIndex].description.slice(0, 150)}{data.turingProjects[selectedTuringProjectIndex].description.length > 150 && '...'}</p>
                 <Link href={`/projects/${data.turingProjects[selectedTuringProjectIndex].slug.current}`} passHref>
-                  <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-white hover:text-black duration-500">
+                  <button className="mt-4 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                     Read More
                   </button>
                 </Link>
@@ -216,6 +217,7 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
+      <Contact />
     </div>
   );
 }
