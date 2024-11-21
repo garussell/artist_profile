@@ -85,6 +85,39 @@ export interface BlogContentProps {
   params: Params;
 }
 
+export interface ProfessionalProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>;  
+  link: string;
+  heroImage: string;
+  secondaryImage?: string; 
+}
+
+export interface PersonalProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  link: string;
+  heroImage: string;
+  secondaryImage?: string; 
+}
+
+export interface TuringProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  link: string;
+  heroImage: string;
+  secondaryImage?: string; 
+}
+
 export interface Data {
   roles: Role[];
   careerSummaries: CareerSummary[];
