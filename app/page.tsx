@@ -13,7 +13,7 @@ const fetchData = async (): Promise<Data> => {
     client.fetch(`*[_type == "traits"]`),
     client.fetch(`*[_type == "offerings"]`),
     client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
-    client.fetch(`*[_type == "services"]`),
+    client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
   ]);
 
   return {
