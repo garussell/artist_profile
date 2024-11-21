@@ -2,18 +2,29 @@
 
 import React, { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client';
-import { BlogPost, BlogContentProps } from '../../types';
+import { BlogPost } from '../../types';
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
-const BlogContent: React.FC<BlogContentProps> = ({ params }) => {
-  const { slug } = params;
+const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
+  const post = await client.fetch(
+    `
+      *[_type == "blogPost" && slug.current == $slug][0]
+    `,
+    { slug }
+  );
+  return post;
+};
+
+const BlogContent: React.FC = () => {
+  const params = useParams(); 
+  const slug = params.slug as string; 
   const [post, setPost] = useState<BlogPost | null>(null);
 
   useEffect(() => {
     if (slug) {
-      client
-        .fetch(`*[_type == "blogPost" && slug.current == $slug][0]`, { slug })
+      fetchBlogPostBySlug(slug)
         .then((data) => setPost(data))
         .catch(console.error);
     }
@@ -29,7 +40,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ params }) => {
       </p>
       <PortableText value={post.content} />
       <div className="border-2 rounded hover:bg-gray-200 hover:text-black duration-500 w-14 mt-4 p-2">
-        <Link href="/blog" passHref>Back</Link>
+        <Link href="/blog" passHref>
+          Back
+        </Link>
       </div>
     </article>
   );

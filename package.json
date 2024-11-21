@@ -1,5 +1,5 @@
 {
-  "name": "bear-and-the-beasts",
+  "name": "gary-allen-russell-jr",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,8 +14,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@sanity/client": "^6.22.3",
+    "@sanity/client": "^6.22.5",
     "@sanity/image-url": "^1.1.0",
+    "@sanity/ui": "^2.8.24",
     "@sanity/vision": "^3.61.0",
     "@tailwindcss/typography": "^0.5.15",
     "next": "^15.0.3",
@@ -24,7 +25,8 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.61.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "xstate": "^5.19.0"
   },
   "devDependencies": {
     "@types/node": "^20",

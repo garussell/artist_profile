@@ -77,12 +77,10 @@ export interface BlogPost {
   };
 }
 
-interface Params {
-  slug: string;
-}
-
 export interface BlogContentProps {
-  params: Params;
+  params: {
+    slug: string;
+  };
 }
 
 export interface ProfessionalProject {

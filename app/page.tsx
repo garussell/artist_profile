@@ -87,6 +87,7 @@ export default async function Home() {
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
                   <h2 className="m-0 hover:text-gray-200 hover:scale-105 duration-500">{feature.title}</h2>
+                  {/* eslint-disable */}
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
