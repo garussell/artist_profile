@@ -287,6 +287,187 @@ export const blogPost: SchemaTypeDefinition = {
   ],
 }
 
+// Projects
+export const professionalProject: SchemaTypeDefinition = {
+  name: 'professionalProject',
+  title: 'ProfessionalProject',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'goals',
+      title: 'Goals',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
+    },
+    {
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'secondaryImage',
+      title: 'Secondary Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+  ],
+}
+
+export const personalProject: SchemaTypeDefinition = {
+  name: 'personalProject',
+  title: 'PersonalProject',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'goals',
+      title: 'Goals',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
+    },
+    {
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'secondaryImage',
+      title: 'Secondary Image',
+      type: 'image',
+    },
+  ],
+}
+
+export const turingProject: SchemaTypeDefinition = {
+  name: 'turingProject',
+  title: 'TuringProject',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'goals',
+      title: 'Goals',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'technologies',
+      title: 'Technologies',
+      type: 'array',
+      of: [{ type: 'block' }],
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
+    },
+    {
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'secondaryImage',
+      title: 'Secondary Image',
+      type: 'image',
+    },
+  ],
+}
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [role, careerSummary, traits, offerings, featured, services, curriculumVitae, blogPost],
+  types: [role, careerSummary, traits, offerings, featured, services, curriculumVitae, blogPost, professionalProject, personalProject, turingProject],
 }

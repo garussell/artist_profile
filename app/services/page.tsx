@@ -2,13 +2,9 @@
 
 import React from 'react';
 import { client } from '../../sanity/lib/client';
-import { Services } from '../types';
+import { ServicesProps } from '../types';
 import Link from 'next/link';
 import Contact from '../contact/page';
-
-interface ServicesProps {
-  services: Services[];
-}
 
 const fetchData = async (): Promise<ServicesProps> => {
   const services = await client.fetch(`*[_type == "services"] | order(_createdAt asc)`);

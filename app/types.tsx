@@ -34,6 +34,10 @@ export interface Services {
   price: string;
 }
 
+export interface ServicesProps {
+  services: Services[];
+}
+
 interface TextBlock {
   _key: string;
   children: { text: string }[];
@@ -79,6 +83,54 @@ interface Params {
 
 export interface BlogContentProps {
   params: Params;
+}
+
+export interface ProfessionalProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>;  
+  link: string;
+  heroImage: string;
+  secondaryImage: string; 
+  slug: {
+    current: string;
+  };
+}
+
+export interface PersonalProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  link: string;
+  heroImage: string;
+  secondaryImage: string; 
+  slug: {
+    current: string;
+  };
+}
+
+export interface TuringProject {
+  _id: string;
+  name: string;
+  description: string;
+  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
+  link: string;
+  heroImage: string;
+  secondaryImage: string; 
+  slug: {
+    current: string;
+  };
+}
+
+export interface Projects {
+  proProjects: ProfessionalProject[];
+  persProjects: PersonalProject[];
+  turingProjects: TuringProject[];
 }
 
 export interface Data {
