@@ -81,7 +81,6 @@ export interface BlogContentProps {
   params: Params;
 }
 
-
 export interface Data {
   roles: Role[];
   careerSummaries: CareerSummary[];
