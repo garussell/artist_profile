@@ -34,6 +34,10 @@ export interface Services {
   price: string;
 }
 
+export interface ServicesProps {
+  services: Services[];
+}
+
 interface TextBlock {
   _key: string;
   children: { text: string }[];
