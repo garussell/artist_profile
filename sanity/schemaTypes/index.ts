@@ -325,6 +325,15 @@ export const professionalProject: SchemaTypeDefinition = {
       type: 'url',
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
+    },
+    {
       name: 'heroImage',
       title: 'Hero Image',
       type: 'image',
@@ -376,6 +385,15 @@ export const personalProject: SchemaTypeDefinition = {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
+    },
+    {
       name: 'heroImage',
       title: 'Hero Image',
       type: 'image',
@@ -425,6 +443,15 @@ export const turingProject: SchemaTypeDefinition = {
       title: 'Link',
       type: 'url',
       validation: Rule => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: Rule => Rule.required(),
+      options: {
+        source: 'title',
+      },
     },
     {
       name: 'heroImage',

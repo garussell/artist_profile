@@ -94,6 +94,9 @@ export interface ProfessionalProject {
   link: string;
   heroImage: string;
   secondaryImage?: string; 
+  slug: {
+    current: string;
+  };
 }
 
 export interface PersonalProject {
@@ -105,6 +108,9 @@ export interface PersonalProject {
   link: string;
   heroImage: string;
   secondaryImage?: string; 
+  slug: {
+    current: string;
+  };
 }
 
 export interface TuringProject {
@@ -116,6 +122,15 @@ export interface TuringProject {
   link: string;
   heroImage: string;
   secondaryImage?: string; 
+  slug: {
+    current: string;
+  };
+}
+
+export interface Projects {
+  proProjects: ProfessionalProject[];
+  persProjects: PersonalProject[];
+  turingProjects: TuringProject[];
 }
 
 export interface Data {
