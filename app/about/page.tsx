@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import profilePic from '../../public/profilePic.png'; 
-import digitalEarth from '../../public/digitalEarth.jpg';
+import mountains from '../../public/mountains.jpg';
 import { client } from '../../sanity/lib/client';
 import { CurriculumVitae } from '../types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -87,8 +87,8 @@ export default async function About() {
             </div>
             <div className="flex justify-center mt-10">
               <Image 
-                src={digitalEarth} 
-                alt="Digital Earth" 
+                src={mountains} 
+                alt="Mountains" 
                 className="shadow-lg"
               />
             </div>
