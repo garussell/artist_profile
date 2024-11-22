@@ -95,15 +95,15 @@ export default async function About() {
           </div>
         </div>
       </section>
-      <section className="w-full flex flex-col items-start p-8">
-        <div className="prose text-left max-w-screen-lg w-full p-4">
+      <section className="w-full flex flex-col items-start p-8 m-20">
+        <div className="prose text-left p-4">
           <h3>Skills</h3>
           {data?.skills ? (
             <div className="flex flex-col">
               {data.skills.map((skill, index) => (
-                <div className="flex items-center w-full" key={index}>
+                <div className="flex items-center w-screen" key={index}>
                   <ul className="list-none pl-4 m-0">
-                    <li>{skill.skillsList}</li>
+                    <h6>{skill.skillsList}</h6>
                   </ul>
                 </div>
               ))}
@@ -112,8 +112,8 @@ export default async function About() {
             <p>No skills found.</p>
           )}
         </div>
-        <div className="prose text-left max-w-screen-2xl w-full p-4">
-          <div className="flex flex-wrap justify-center">
+        <div className="prose text-left p-4">
+          <div className="flex flex-wrap justify-center w-screen">
             {skillsIcons.map((skill, index) => (
               <div key={index} className="m-4 text-center">
                 <FontAwesomeIcon icon={skill.icon} size="4x" />
@@ -165,7 +165,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-center p-8 mt-10">
-        <div className="prose text-center max-w-screen-lg w-full p-4">
+        <div className="prose text-center w-full p-4">
           <h2>My World</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
