@@ -8,6 +8,15 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xxs: { min: '280px' },
+      xs: { min: '431px' },
+      sm: { min: '639px' },
+      md: { min: '767px' },
+      lg: { min: '1023px' },
+      xl: { min: '1279px' },
+      xxl: { min: '1535px' }
+    },
     extend: {
       colors: {
         background: "var(--background)",
@@ -53,6 +62,9 @@ const config: Config = {
             p: {
               fontFamily: theme('fontFamily.viga'),
               fontWeight: theme('fontWeight.normal'),
+            },
+            li: {
+              fontSize: theme('fontSize.2xl'),
             },
           }
         }

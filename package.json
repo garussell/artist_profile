@@ -19,6 +19,7 @@
     "@sanity/ui": "^2.8.24",
     "@sanity/vision": "^3.61.0",
     "@tailwindcss/typography": "^0.5.15",
+    "framer-motion": "^11.11.17",
     "next": "^15.0.3",
     "next-sanity": "^9.5.5",
     "nodemailer": "^6.9.16",

@@ -34,7 +34,7 @@ export default function ScrollUpButton() {
       }`}
       onClick={scrollToTop}
     >
-      <span className="text-3xl hover:text-4xl">
+      <span className="text-4xl text-red-500 hover:text-5xl">
         <FontAwesomeIcon icon={faArrowUp} />
       </span>
     </div>

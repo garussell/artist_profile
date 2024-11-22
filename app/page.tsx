@@ -30,8 +30,9 @@ export default async function Home() {
   const data = await fetchData();
 
   return (
-    <div className="mr-10">
-        <section className="mt-10 mb-20">
+    <div>
+        {/* Role and Title */}
+        <section className="mt-10 mr-20 mb-20 h-screen">
             {data.roles.map((role, index) => (
               <div key={`${role._id}-${index}`} className="uppercase flex justify-end w-full">
                 <div className="prose prose-sky text-right">
@@ -42,8 +43,10 @@ export default async function Home() {
             ))}
         </section>
         <hr className="w-screen" />
+          
+        {/* Career Summary */}
         <section>
-          <div className="list-none flex justify-center text-center m-10">
+          <div className="list-none flex text-center m-10 mx-auto w-3/4">
             {data.careerSummaries.map(summary => (
               <p key={summary._id}>{summary.content[0]?.children[0]?.text}</p>
             ))}
@@ -53,47 +56,50 @@ export default async function Home() {
             <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500"><Link href="/contact">Contact</Link></div>
           </div>
         </section>
-
-        <section>
-          <div className="prose m-20">
+          
+        {/* Traits */}
+        <section className="h-screen flex items-center justify-start">
+          <div className="prose m-20 flex flex-col items-center justify-center w-full">
             {data.traits.map((trait, index) => (
-              <h2 key={`${trait._id}-${index}`}>{trait.trait}</h2>
+              <h1 key={`${trait._id}-${index}`}>{trait.trait}</h1>
             ))}
           </div>
         </section>
-
-        <section className="flex justify-end">
+              
+        {/* Offerings */}
+        <section className="flex justify-end mr-20">
           <div className="prose prose-sky">
-            <h3>What I Offer</h3>
-            <hr className="w-full" />
+            <h2>What I Offer</h2>
+            <hr className="w-screen" />
             <ul className="list-none">
               {data.offerings.map((offering, index) => (
                 <li key={`${offering._id}-${index}`}>
-                  <h4>{offering.title}</h4>
+                  <h3 className="-translate-x-8">{offering.title}</h3>
                   <div>
                     <PortableText value={offering.content} />
                   </div>
-                  <hr className="w-full" />
+                  <hr className="-translate-x-8 w-screen" />
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        <section className="min-h-screen flex flex-col justify-start items-left">
+        {/* Featured Work */}                  
+        <section className="min-h-screen flex flex-col justify-start items-left h-screen mt-40">
           <div className="prose text-left max-w-screen-lg w-full">
             <h3 className="mt-20 mb-10 ml-8">featured work</h3>
             <ul className="list-none space-y-6">
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
-                  <h2 className="m-0 hover:text-gray-200 hover:scale-105 duration-500">{feature.title}</h2>
+                  <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
                   {/* eslint-disable */}
                   <img 
                     src={feature.image} 
                     alt={feature.title} 
-                    className="w-2/3 ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
+                    className="ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
                     style={{ 
-                      transform: `translateX(75%) translateY(-${index * 30}%)`, 
+                      transform: `translateX(100%) translateY(-${index * 30}%)`, 
                     }}
                   />
                 </li>
@@ -102,10 +108,11 @@ export default async function Home() {
           </div>
           <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500 w-16"><Link href="/projects">More</Link></div>
         </section>
-
-        <section className="flex justify-end">
+                
+        {/* Services */}
+        <section className="flex justify-end mr-20 mb-40">
           <div className="prose mb-10">
-            <h3>Services</h3>
+            <h2>Services</h2>
             <ul className="grid grid-cols-1 list-none">
               {data.services.map((service, index) => (
                 <li key={`${service._id}-${index}`} className="flex justify-between">
