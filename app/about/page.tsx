@@ -53,7 +53,7 @@ export default async function About() {
   return (
     <div className="">
       <section className="w-full flex flex-col items-center">
-        <div className="prose w-full max-w-max grid grid-cols-1 md:grid-cols-2 pl-8">
+        <div className="prose prose-sm md:prose-md lg:prose-lg w-full max-w-max grid grid-cols-1 md:grid-cols-2 pl-8">
           <div className="flex flex-col justify-center">
             <h3 className="italic mb-4">My name is</h3>
             <h1 className="mb-6">Gary Allen</h1>
@@ -69,7 +69,7 @@ export default async function About() {
           </div>
         </div>
         <div className="w-full py-10 flex justify-center mt-20">
-          <div className="prose max-w-4xl mx-auto p-4 text-center">
+          <div className="prose prose-sm md:prose-md lg:prose-lg max-w-4xl mx-auto p-4 text-center">
             <h2 className="mb-4">Curriculum Vitae</h2>
             <div>
               {data?.intro ? (
@@ -97,7 +97,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-start p-8 mt-20 mb-20">
-        <div className="prose text-left p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left p-4">
           <h2>Skills</h2>
           {data?.skills ? (
             <div className="flex flex-col">
@@ -113,7 +113,7 @@ export default async function About() {
             <p>No skills found.</p>
           )}
         </div>
-        <div className="prose text-left p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left p-4">
           <div className="flex flex-wrap justify-center w-screen">
             {skillsIcons.map((skill, index) => (
               <div key={index} className="m-4 text-center">
@@ -124,7 +124,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-start p-8 mt-10">
-        <div className="prose text-left max-w-screen-lg w-full p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left max-w-screen-lg w-full p-4">
           <h2 className="m-0">Experience</h2>
           {data?.experiences ? (
             <div className="flex flex-col">
@@ -149,7 +149,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-end p-8 mt-10">
-        <div className="prose text-right max-w-screen-lg w-full p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-right max-w-screen-lg w-full p-4">
           <h2 className="m-0">Education</h2>
           {data?.education ? (
             <div className="flex flex-col">
@@ -166,7 +166,7 @@ export default async function About() {
         </div>
       </section>
       <section className="flex flex-col items-center p-8 mt-10">
-        <div className="prose prose-fullwidth text-center w-full p-4">
+        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4">
           <h2>My World</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
@@ -200,7 +200,7 @@ export default async function About() {
         </div>
       </section>
       <section className="m-20 mb-40">
-        <div className="prose prose-fullwidth text-center max-w-screen-lg w-full p-4">
+        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center max-w-screen-lg w-full p-4">
           <h3>Audio-Visual Editing</h3>
           <div className="w-full flex justify-center">
             <iframe 
