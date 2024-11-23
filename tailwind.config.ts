@@ -9,13 +9,9 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      xxs: { min: '280px' },
-      xs: { min: '431px' },
-      sm: { min: '639px' },
-      md: { min: '767px' },
-      lg: { min: '1023px' },
-      xl: { min: '1279px' },
-      xxl: { min: '1535px' }
+      sm: { max: '639px'},
+      md: '767px',
+      lg: '1023px',
     },
     extend: {
       colors: {
@@ -72,6 +68,36 @@ const config: Config = {
           css: {
             maxWidth: 'none',
             width: '100%',
+          },
+        },
+        sm: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.4xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.3xl'),
+            },
+          },
+        },
+        md: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.6xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.4xl'),
+            },
+          },
+        },
+        lg: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.8xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.6xl'),
+            },
           },
         },
       }),

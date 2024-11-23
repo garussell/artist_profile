@@ -31,102 +31,113 @@ export default async function Home() {
 
   return (
     <div>
-        {/* Role and Title */}
-        <section className="mt-10 mr-20 mb-20 h-screen">
-            {data.roles.map((role, index) => (
-              <div key={`${role._id}-${index}`} className="uppercase flex justify-end w-full">
-                <div className="prose prose-sky text-right">
-                  <h1>{role.title}</h1>
-                  <h2>{role.subtitle}</h2>
-                </div>
-              </div>
-            ))}
-        </section>
-        <hr className="w-screen" />
-          
-        {/* Career Summary */}
-        <section>
-          <div className="list-none flex text-center m-10 mx-auto w-3/4">
-            {data.careerSummaries.map(summary => (
-              <p key={summary._id}>{summary.content[0]?.children[0]?.text}</p>
-            ))}
+      {/* Role and Title */}
+      <section className="mt-10 mb-20 h-screen sm:h-full">
+        {data.roles.map((role, index) => (
+          <div key={`${role._id}-${index}`} className="uppercase flex flex-col md:flex-row justify-end w-full">
+            <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg text-right p-8">
+              <h1>{role.title}</h1>
+              <h2>{role.subtitle}</h2>
+            </div>
           </div>
-          <div className="flex justify-center text-center ml-12">
-            <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-black hover:text-white duration-500"><Link href="/about">Learn More</Link></div>
-            <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500"><Link href="/contact">Contact</Link></div>
-          </div>
-        </section>
-          
-        {/* Traits */}
-        <section className="h-screen flex items-center justify-start">
-          <div className="prose m-20 flex flex-col items-center justify-center w-full">
-            {data.traits.map((trait, index) => (
-              <h1 key={`${trait._id}-${index}`}>{trait.trait}</h1>
-            ))}
-          </div>
-        </section>
-              
-        {/* Offerings */}
-        <section className="flex justify-end mr-20">
-          <div className="prose prose-sky">
-            <h2>What I Offer</h2>
-            <hr className="w-screen" />
-            <ul className="list-none">
-              {data.offerings.map((offering, index) => (
-                <li key={`${offering._id}-${index}`}>
-                  <h3 className="-translate-x-8">{offering.title}</h3>
-                  <div>
-                    <PortableText value={offering.content} />
-                  </div>
-                  <hr className="-translate-x-8 w-screen" />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        ))}
+      </section>
+      <hr className="w-full" />
 
-        {/* Featured Work */}                  
-        <section className="min-h-screen flex flex-col justify-start items-left h-screen mt-40">
-          <div className="prose text-left max-w-screen-lg w-full">
-            <h3 className="mt-20 mb-10 ml-8">featured work</h3>
-            <ul className="list-none space-y-6">
-              {data.featured.map((feature, index) => (
-                <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
-                  <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
-                  {/* eslint-disable */}
-                  <img 
-                    src={feature.image} 
-                    alt={feature.title} 
-                    className="ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
-                    style={{ 
-                      transform: `translateX(100%) translateY(-${index * 30}%)`, 
-                    }}
-                  />
-                </li>
-              ))}
-            </ul>
+      {/* Career Summary */}
+      <section>
+        <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
+          {data.careerSummaries.map(summary => (
+            <p key={summary._id}>{summary.content[0]?.children[0]?.text}</p>
+          ))}
+        </div>
+        <div className="flex justify-center text-center">
+          <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-black hover:text-white duration-500">
+            <Link href="/about">Learn More</Link>
           </div>
-          <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500 w-16"><Link href="/projects">More</Link></div>
-        </section>
-                
-        {/* Services */}
-        <section className="flex justify-end mr-20 mb-40">
-          <div className="prose mb-10">
-            <h2>Services</h2>
-            <ul className="grid grid-cols-1 list-none">
-              {data.services.map((service, index) => (
-                <li key={`${service._id}-${index}`} className="flex justify-between">
-                  <span>{service.service}</span>
-                  <span className="ml-20">{service.price}</span>
-                </li>
-              ))}
-              <li className="flex justify-between">
-                <span>Book a job on Fiverr</span>
-                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500">Fiverr</Link>
+          <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
+            <Link href="/contact">Contact</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Traits */}
+      <section className="h-screen sm:h-auto flex items-center justify-start">
+        <div className="prose prose-sm md:prose-md lg:prose-lg m-20 flex flex-col items-center justify-center w-full">
+          {data.traits.map((trait, index) => (
+            <h1 key={`${trait._id}-${index}`}>{trait.trait}</h1>
+          ))}
+        </div>
+      </section>
+
+      {/* Offerings */}
+      <section className="flex justify-end mr-20">
+        <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg p-2">
+          <h2>What I Offer</h2>
+          <hr className="w-full" />
+          <ul className="list-none">
+            {data.offerings.map((offering, index) => (
+              <li key={`${offering._id}-${index}`}>
+                <h3 className="-translate-x-8">{offering.title}</h3>
+                <div>
+                  <PortableText value={offering.content} />
+                </div>
+                <hr className="-translate-x-8 w-full" />
               </li>
-            </ul>
-          </div>
-        </section>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Featured Work */}
+      <section className="min-h-screen flex flex-col justify-start items-left mt-40">
+        <div className="prose text-left max-w-screen-lg w-full">
+          <h3 className="mt-20 mb-10 ml-8 sm:mt-0">Featured Work</h3>
+          <ul className="list-none space-y-6">
+            {data.featured.map((feature, index) => (
+              <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
+                <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
+                {/* eslint-disable */}
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
+                  style={{
+                    transform: `translateX(80%) translateY(-${index * 30}%) sm:translateX(-120%)`,
+                  }}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500 w-16">
+          <Link href="/projects">More</Link>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="flex justify-end mr-20 mb-40">
+        <div className="prose prose-sm md:prose-md lg:prose-lg mb-10 p-2">
+          <h2>Services</h2>
+          <ul className="grid grid-cols-1 list-none">
+            {data.services.map((service, index) => (
+              <li key={`${service._id}-${index}`} className="flex justify-between">
+                <span>{service.service}</span>
+                <span className="ml-20 sm:hidden">{service.price}</span>
+              </li>
+            ))}
+            <li className="flex justify-between">
+              <span>Book a job on Fiverr</span>
+              <Link
+                href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective"
+                className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500"
+              >
+                Fiverr
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
