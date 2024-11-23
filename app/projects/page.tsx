@@ -247,7 +247,7 @@ export default function ProjectsPage() {
                       />
                       <p>{project.description.slice(0, 150)}{project.description.length > 150 && '...'}</p>
                       <Link href={`/projects/${project.slug.current}`} passHref>
-                        <button className="mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
+                        <button className="text-lg mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                           Read More
                         </button>
                       </Link>
@@ -283,7 +283,7 @@ export default function ProjectsPage() {
                       />
                       <p>{project.description.slice(0, 150)}{project.description.length > 150 && '...'}</p>
                       <Link href={`/projects/${project.slug.current}`} passHref>
-                        <button className="mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
+                        <button className="text-lg mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                           Read More
                         </button>
                       </Link>
@@ -320,7 +320,7 @@ export default function ProjectsPage() {
                       />
                       <p>{project.description.slice(0, 150)}{project.description.length > 150 && '...'}</p>
                       <Link href={`/projects/${project.slug.current}`} passHref>
-                        <button className="mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
+                        <button className="text-lg mt-2 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                           Read More
                         </button>
                       </Link>

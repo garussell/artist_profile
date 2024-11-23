@@ -130,12 +130,12 @@ export default async function About() {
             <div className="flex flex-col">
               {data.experiences.map((experience, index) => (
                 <div className="flex flex-col" key={index}>
-                  <h4>{experience.company}</h4>
-                  <div className="flex flex-row">
+                  <h3 className="text-3xl md:text-4xl"><em>{experience.company}</em></h3>
+                  <div className="flex flex-row items-center">
                     <h6>&quot;{experience.jobTitle}&quot;</h6>
-                    <p className="ml-10 mt-1">{experience.datesWorked}</p>
+                    <p className="ml-10">{experience.datesWorked}</p>
                   </div>
-                  <ul className="m-0">
+                  <ul className="m-0 mt-2 mb-0 list-disc list-inside">
                     {experience.duties.map((duty, dutyIndex) => (
                       <li className="sm:text-lg" key={dutyIndex}>{duty}</li>
                     ))}
@@ -149,7 +149,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-end p-8 mt-10">
-        <div className="prose prose-sm md:prose-md lg:prose-lg text-right max-w-screen-lg w-full p-4 sm:text-center sm:p-0">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-right max-w-screen-lg w-full p-4 sm:text-start sm:p-0 sm:mt-20">
           <h2 className="m-0">Education</h2>
           {data?.education ? (
             <div className="flex flex-col">
@@ -166,7 +166,7 @@ export default async function About() {
         </div>
       </section>
       <section className="flex flex-col items-center p-8 mt-10">
-        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4">
+        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4 sm:mt-20">
           <h2 className="sm:text-5xl">My World</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
@@ -199,7 +199,7 @@ export default async function About() {
           )}
         </div>
       </section>
-      <section className="m-20 mb-40">
+      <section className="m-20 mb-40 flex justify-center">
         <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center max-w-screen-lg w-full p-4">
           <h3 className="sm:text-3xl">Audio-Visual Editing</h3>
           <div className="w-full flex justify-center">
