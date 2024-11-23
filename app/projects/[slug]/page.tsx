@@ -51,14 +51,14 @@ const ProjectShow: React.FC = () => {
           />
         </div>
         <div className="w-full max-w-screen-lg p-8 mt-10 prose prose-lg">
-          <h1 className="text-8xl font-bold text-center">{project.name}</h1>
+          <h1 className="text-8xl sm:text-5xl font-bold text-center">{project.name}</h1>
           <div className="mt-8 text-left">
             <p>{project.description}</p>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col items-center mt-20">
+      <section className="flex flex-col items-center mt-20 sm:mt-0">
         <div className="flex flex-wrap w-full max-w-screen-xl items-center gap-2">
           <div className="w-full md:w-1/2 p-4 mb-8 md:mb-0">
             <Image
@@ -72,9 +72,9 @@ const ProjectShow: React.FC = () => {
             />
           </div>
           <div className="w-full md:w-1/2 p-8 prose">
-            <h2 className="text-2xl font-bold">Goals</h2>
+            <h2 className="text-2xl sm:text-4xl font-bold">Goals</h2>
             <PortableText value={project.goals} />
-            <h2 className="text-2xl font-bold mt-4">Technologies</h2>
+            <h2 className="text-2xl sm:text-4xl font-bold mt-4">Technologies</h2>
             <PortableText value={project.technologies} />
           </div>
         </div>

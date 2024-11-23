@@ -24,11 +24,16 @@ const config: Config = {
       },
       animation: {
         marquee: "marquee 10s linear infinite",
+        'marquee-mobile': "marquee-mobile 10s linear infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-55%)" },
+        },
+        'marquee-mobile': {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-217%)" },
         },
       },
       typography: (theme: (path: string) => string) => ({
@@ -78,8 +83,8 @@ const config: Config = {
             'h2': {
               fontSize: theme('fontSize.4xl'),
             },
-            'h3': {
-              fontSize: theme('fontSize.3xl'),
+            'p': {
+              fontSize: theme('fontSize.lg'),
             },
           },
         },

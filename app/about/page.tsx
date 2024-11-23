@@ -167,7 +167,7 @@ export default async function About() {
       </section>
       <section className="flex flex-col items-center p-8 mt-10">
         <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4">
-          <h2>My World</h2>
+          <h2 className="sm:text-5xl">My World</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
               {data.myWorld.map((world, index) => (
@@ -189,7 +189,7 @@ export default async function About() {
                   </div>
                   <div className="w-1/3 text-left flex-grow sm:w-full">
                     <h2>{world.category}</h2>
-                    <h6>{world.description}</h6>
+                    <p>{world.description}</p>
                   </div>
                 </div>
               ))}
@@ -201,7 +201,7 @@ export default async function About() {
       </section>
       <section className="m-20 mb-40">
         <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center max-w-screen-lg w-full p-4">
-          <h3>Audio-Visual Editing</h3>
+          <h3 className="sm:text-3xl">Audio-Visual Editing</h3>
           <div className="w-full flex justify-center">
             <iframe 
               width="640" 
