@@ -66,8 +66,14 @@ const config: Config = {
             li: {
               fontSize: theme('fontSize.2xl'),
             },
-          }
-        }
+          },
+        },
+        fullwidth: {
+          css: {
+            maxWidth: 'none',
+            width: '100%',
+          },
+        },
       }),
     },
   },

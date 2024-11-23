@@ -111,7 +111,7 @@ export default function ProjectsPage() {
               <div 
                 className="absolute right-full mr-4 w-full p-4 z-10"
                 style={{ 
-                  transform: `translateX(-100%) translateY(-100%)`,
+                  transform: `translateX(-70%) translateY(-90%)`,
                 }}
               >
                 <Image
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
               <div 
                 className="absolute left-full ml-4 w-full p-4 z-10"
                 style={{ 
-                  transform: `translateX(100%) translateY(-100%)`,
+                  transform: `translateX(100%) translateY(-95%)`,
                 }}
               >
                 <Image
@@ -197,7 +197,7 @@ export default function ProjectsPage() {
               <div 
                 className="absolute right-full mr-4 w-full p-4 z-10"
                 style={{ 
-                  transform: `translateX(-100%) translateY(-100%)`,
+                  transform: `translateX(-100%) translateY(-90%)`,
                 }}
               >
                 <Image
