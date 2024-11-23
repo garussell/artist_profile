@@ -71,18 +71,18 @@ export default async function Home() {
       </section>
 
       {/* Offerings */}
-      <section className="flex justify-end mr-20">
+      <section className="flex justify-end mr-20 sm:mr-0">
         <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg p-2">
           <h2>What I Offer</h2>
           <hr className="w-full" />
           <ul className="list-none">
             {data.offerings.map((offering, index) => (
               <li key={`${offering._id}-${index}`}>
-                <h3 className="-translate-x-8">{offering.title}</h3>
+                <h3 className="-translate-x-8 sm:-translate-x-4">{offering.title}</h3>
                 <div>
                   <PortableText value={offering.content} />
                 </div>
-                <hr className="-translate-x-8 w-full" />
+                <hr className="-translate-x-8 w-full sm:-translate-x-4" />
               </li>
             ))}
           </ul>

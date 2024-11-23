@@ -73,9 +73,12 @@ const config: Config = {
         sm: {
           css: {
             'h1': {
-              fontSize: theme('fontSize.4xl'),
+              fontSize: theme('fontSize.5xl'),
             },
             'h2': {
+              fontSize: theme('fontSize.4xl'),
+            },
+            'h3': {
               fontSize: theme('fontSize.3xl'),
             },
           },

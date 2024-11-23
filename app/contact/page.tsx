@@ -14,8 +14,8 @@ export default function Contact() {
           <p className="text-8xl font-bold text-white mx-4">GET IN TOUCH!</p>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row justify-between items-center w-full h-screen bg-background p-8">
-        <div className="flex flex-col space-y-6 w-full px-40">
+      <section className="flex flex-col justify-between items-center w-full h-screen bg-background p-8">
+        <div className="flex flex-col space-y-6 w-full px-40 sm:px-0">
           <h6 className="text-lg leading-relaxed">
             If you are ready to start your next project or have any other professional interest in my services, let&apos;s connect!
           </h6>

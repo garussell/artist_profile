@@ -18,10 +18,10 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="mr-10">
+    <div className="mr-10 sm:mr-0">
       <section className="mt-10 mb-20">
         <div className="uppercase flex justify-end w-full">
-          <div className="prose prose-sky text-right">
+          <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg text-right sm:mr-4">
             <h2 className="m-0">My Thoughts,</h2>
             <h1>Exactly</h1>
           </div>
