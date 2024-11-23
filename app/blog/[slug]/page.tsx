@@ -33,7 +33,7 @@ const BlogContent: React.FC = () => {
   if (!post) return <div>Loading...</div>;
 
   return (
-    <article className="max-w-screen-lg mx-auto p-8 mt-20">
+    <article className="max-w-screen-lg mx-40 p-8 mt-20 sm:mx-0">
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <p className="text-gray-500 mb-6">
         {new Date(post.publishedAt).toLocaleDateString()}

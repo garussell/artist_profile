@@ -7,14 +7,14 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-8">
       <div className="text-center">
-        <div className="grid sm:grid-cols-3 p-4">
-          <div className="mt-4">
+        <div className="grid grid-cols-3 p-4 m-2">
+          <div className="flex flex-col w-1/3 sm:w-full sm:p-2 mt-4">
             <Link href="/" className="text-2xl font-bold border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
               Allen Russell
             </Link>
             <h2 className="mt-6 ml-2">Full Stack Developer</h2>
           </div>
-          <div className="mt-4 text-left">
+          <div className="mt-4 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
             <Link href="/about" className="block mb-2 hover:text-gray-400 duration-500">About</Link>
             <Link href="/blog" className="block mb-2 hover:text-gray-400 duration-500">Blog</Link>
             <Link href="/services" className="block mb-2 hover:text-gray-400 duration-500">Services</Link>

@@ -51,9 +51,9 @@ export default async function About() {
   const data = await fetchData();
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="">
       <section className="w-full flex flex-col items-center">
-        <div className="prose w-full max-w-max grid grid-cols-1 md:grid-cols-2 pl-8">
+        <div className="prose prose-sm md:prose-md lg:prose-lg w-full max-w-max grid grid-cols-1 md:grid-cols-2 pl-8">
           <div className="flex flex-col justify-center">
             <h3 className="italic mb-4">My name is</h3>
             <h1 className="mb-6">Gary Allen</h1>
@@ -64,11 +64,12 @@ export default async function About() {
             <Image 
               src={profilePic} 
               alt="Allen Russell" 
+              className="max-w-full max-h-[800px] object-contain"
             />
           </div>
         </div>
-        <div className="w-full py-10 flex justify-center">
-          <div className="prose max-w-4xl mx-auto p-4 text-center">
+        <div className="w-full py-10 flex justify-center mt-20">
+          <div className="prose prose-sm md:prose-md lg:prose-lg max-w-4xl mx-auto p-4 text-center sm:text-start">
             <h2 className="mb-4">Curriculum Vitae</h2>
             <div>
               {data?.intro ? (
@@ -95,15 +96,15 @@ export default async function About() {
           </div>
         </div>
       </section>
-      <section className="w-full flex flex-col items-start p-8">
-        <div className="prose text-left max-w-screen-lg w-full p-4">
-          <h3>Skills</h3>
+      <section className="w-full flex flex-col items-start p-8 mt-20 mb-20 sm:p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left p-4 sm:p-px">
+          <h2>Skills</h2>
           {data?.skills ? (
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center">
               {data.skills.map((skill, index) => (
-                <div className="flex items-center w-full" key={index}>
-                  <ul className="list-none pl-4 m-0">
-                    <li>{skill.skillsList}</li>
+                <div className="flex items-center w-screen" key={index}>
+                  <ul className="list-none pl-4 m-0 sm:pl-0 sm:mb-2">
+                    <h6 className="sm:text-lg">{skill.skillsList}</h6>
                   </ul>
                 </div>
               ))}
@@ -112,8 +113,8 @@ export default async function About() {
             <p>No skills found.</p>
           )}
         </div>
-        <div className="prose text-left max-w-screen-2xl w-full p-4">
-          <div className="flex flex-wrap justify-center">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left p-4 sm:p-px">
+          <div className="flex flex-wrap w-screen">
             {skillsIcons.map((skill, index) => (
               <div key={index} className="m-4 text-center">
                 <FontAwesomeIcon icon={skill.icon} size="4x" />
@@ -123,20 +124,20 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-start p-8 mt-10">
-        <div className="prose text-left max-w-screen-lg w-full p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-left max-w-screen-lg w-full p-4 sm:p-0">
           <h2 className="m-0">Experience</h2>
           {data?.experiences ? (
             <div className="flex flex-col">
               {data.experiences.map((experience, index) => (
                 <div className="flex flex-col" key={index}>
-                  <h4>{experience.company}</h4>
-                  <div className="flex flex-row">
+                  <h3 className="text-3xl md:text-4xl"><em>{experience.company}</em></h3>
+                  <div className="flex flex-row items-center">
                     <h6>&quot;{experience.jobTitle}&quot;</h6>
-                    <p className="ml-10 mt-1">{experience.datesWorked}</p>
+                    <p className="ml-10">{experience.datesWorked}</p>
                   </div>
-                  <ul className="m-0">
+                  <ul className="m-0 mt-2 mb-0 list-disc list-inside">
                     {experience.duties.map((duty, dutyIndex) => (
-                      <li key={dutyIndex}>{duty}</li>
+                      <li className="sm:text-lg" key={dutyIndex}>{duty}</li>
                     ))}
                   </ul>
                 </div>
@@ -148,7 +149,7 @@ export default async function About() {
         </div>
       </section>
       <section className="w-full flex flex-col items-end p-8 mt-10">
-        <div className="prose text-right max-w-screen-lg w-full p-4">
+        <div className="prose prose-sm md:prose-md lg:prose-lg text-right max-w-screen-lg w-full p-4 sm:text-start sm:p-0 sm:mt-20">
           <h2 className="m-0">Education</h2>
           {data?.education ? (
             <div className="flex flex-col">
@@ -164,17 +165,17 @@ export default async function About() {
           )}
         </div>
       </section>
-      <section className="w-full flex flex-col items-center p-8 mt-10">
-        <div className="prose text-center max-w-screen-lg w-full p-4">
-          <h2>My World</h2>
+      <section className="flex flex-col items-center p-8 mt-10">
+        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4 sm:mt-20">
+          <h2 className="sm:text-5xl">My World</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
               {data.myWorld.map((world, index) => (
                 <div
-                  className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-40 items-center`}
+                  className={`flex sm:flex-col ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-40 items-center sm:gap-2`}
                   key={index}
                 >
-                  <div className={`w-1/2 ${index % 2 === 0 ? "order-1" : "order-2"}`}>
+                  <div className={`w-px sm:w-full ${index % 2 === 0 ? "order-1" : "order-2"} flex-grow`}>
                     {world.images.map((image, imgIndex) => (
                       <Image 
                         key={imgIndex} 
@@ -186,8 +187,8 @@ export default async function About() {
                       />
                     ))}
                   </div>
-                  <div className="w-1/2 text-left">
-                    <h3>{world.category}</h3>
+                  <div className="w-1/3 text-left flex-grow sm:w-full">
+                    <h2>{world.category}</h2>
                     <p>{world.description}</p>
                   </div>
                 </div>
@@ -198,10 +199,10 @@ export default async function About() {
           )}
         </div>
       </section>
-      <section className="m-20 mb-40">
-        <div className="prose text-center max-w-screen-lg w-full p-4">
-          <h3>Audio-Visual Editing</h3>
-          <div className="w-full">
+      <section className="m-20 mb-40 flex justify-center">
+        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center max-w-screen-lg w-full p-4">
+          <h3 className="sm:text-3xl">Audio-Visual Editing</h3>
+          <div className="w-full flex justify-center">
             <iframe 
               width="640" 
               height="360" 
@@ -211,7 +212,6 @@ export default async function About() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               referrerPolicy="strict-origin-when-cross-origin" 
               allowFullScreen>
-
             </iframe>
           </div>
         </div>

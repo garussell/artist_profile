@@ -8,6 +8,11 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: { max: '639px'},
+      md: '767px',
+      lg: '1023px',
+    },
     extend: {
       colors: {
         background: "var(--background)",
@@ -19,11 +24,16 @@ const config: Config = {
       },
       animation: {
         marquee: "marquee 10s linear infinite",
+        'marquee-mobile': "marquee-mobile 10s linear infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-55%)" },
+        },
+        'marquee-mobile': {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-217%)" },
         },
       },
       typography: (theme: (path: string) => string) => ({
@@ -54,8 +64,50 @@ const config: Config = {
               fontFamily: theme('fontFamily.viga'),
               fontWeight: theme('fontWeight.normal'),
             },
-          }
-        }
+            li: {
+              fontSize: theme('fontSize.2xl'),
+            },
+          },
+        },
+        fullwidth: {
+          css: {
+            maxWidth: 'none',
+            width: '100%',
+          },
+        },
+        sm: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.5xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.4xl'),
+            },
+            'p': {
+              fontSize: theme('fontSize.lg'),
+            },
+          },
+        },
+        md: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.6xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.4xl'),
+            },
+          },
+        },
+        lg: {
+          css: {
+            'h1': {
+              fontSize: theme('fontSize.8xl'),
+            },
+            'h2': {
+              fontSize: theme('fontSize.6xl'),
+            },
+          },
+        },
       }),
     },
   },
