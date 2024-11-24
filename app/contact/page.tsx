@@ -7,12 +7,12 @@ export default function Contact() {
       {/* Marquee Section */}
       <section className="relative flex w-full mt-20 overflow-hidden">
         <div className="flex w-full animate-marquee whitespace-nowrap gap-40 sm:animate-marquee-mobile">
-          <p className="text-8xl font-bold text-white mx-4">GET IN TOUCH!</p>
-          <p className="text-8xl font-bold text-white mx-4">GET IN TOUCH!</p>
+          <p className="text-8xl font-bold text-black dark:text-white mx-4">GET IN TOUCH!</p>
+          <p className="text-8xl font-bold text-black dark:text-white mx-4">GET IN TOUCH!</p>
         </div>
         <div className="flex w-full animate-marquee whitespace-nowrap ml-40 gap-40 sm:hidden">
-          <p className="text-8xl font-bold text-white mx-4">GET IN TOUCH!</p>
-          <p className="text-8xl font-bold text-white mx-4">GET IN TOUCH!</p>
+          <p className="text-8xl font-bold text-black dark:text-white mx-4">GET IN TOUCH!</p>
+          <p className="text-8xl font-bold text-black dark:text-white mx-4">GET IN TOUCH!</p>
         </div>
       </section>
 
