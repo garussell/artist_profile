@@ -1,18 +1,28 @@
+"use client";
+
 import { faLinkedin, faGithub, faGitlab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import "../app/globals.css";
+import { ThemeToggle } from "./themeToggle";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-white text-black dark:bg-black dark:text-white py-8">
       <div className="text-center">
         <div className="grid grid-cols-3 p-4 m-2">
           <div className="flex flex-col w-1/3 sm:w-full sm:p-2 mt-4">
-            <Link href="/" className="text-2xl font-bold border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
+            <Link href="/" className="text-2xl hover:text-white dark:hover:text-black
+                text-black dark:text-white
+                hover:bg-black dark:hover:bg-white
+                duration-500 border-4 p-2 rounded-lg">
               Allen Russell
             </Link>
             <h2 className="mt-6 ml-2">Full Stack Developer</h2>
+            <div className="mt-4">
+              <ThemeToggle />
+            </div>
           </div>
           <div className="mt-4 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
             <Link href="/about" className="block mb-2 hover:text-gray-400 duration-500">About</Link>

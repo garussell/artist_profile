@@ -99,12 +99,13 @@ export default async function Home() {
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
                   <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="ml-4 absolute inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
+                    className="ml-4 absolute px-40 inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
                     style={{
-                      transform: `translateX(80%) translateY(-${index * 30}%)`,
+                      transform: `translateX(50%) translateY(-${index * 30}%)`,
                     }}
                   />
                 </li>
@@ -126,6 +127,7 @@ export default async function Home() {
               {data.featured.map((feature, index) => (
                 <li key={`${feature._id}-${index}`} className="relative flex flex-col items-start">
                   <h2 className="m-0 mb-2 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={feature.image}
                     alt={feature.title}
