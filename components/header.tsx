@@ -81,6 +81,15 @@ export default function Header() {
         {/* Mobile Nav */}
         {isOpen && (
           <div className="absolute top-0 left-0 w-full bg-black bg-opacity-90 z-10">
+            {/* Close Button */}
+            <div className="pb-16">
+            <button
+              onClick={closeMenu}
+              className="text-white px-2 border border-white absolute top-2 right-6 focus:outline-none m-8"
+            >
+              X
+            </button>
+            </div>
             <ul className="flex flex-col items-end justify-center h-full space-y-4 m-8">
               <li onClick={closeMenu}>
                 <Link href="/about" className={`hover:text-gray-400 ${isActive('/about') ? 'text-white' : ''}`}>About</Link>
