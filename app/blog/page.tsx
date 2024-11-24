@@ -34,9 +34,9 @@ export default function Blog() {
           {data.map((post) => (
             <div 
               key={post._id} 
-              className="border border-white bg-slate-400 p-4 rounded shadow-md"
+              className="border border-white bg-slate-300 dark:bg-slate-400 p-4 rounded shadow-md"
             >
-              <p className="text-lg font-semibold text-white">{post.title}</p>
+              <p className="text-lg font-semibold text-black dark:text-white">{post.title}</p>
               <p className="text-sm text-gray-800">{post.excerpt}</p>
               <p className="text-xs text-gray-600 mt-2">{new Date(post.publishedAt).toLocaleDateString()}</p>
               <Link href={`/blog/${post.slug.current}`} passHref>
