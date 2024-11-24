@@ -156,6 +156,7 @@ export default async function Home() {
               <span>Book a job on Fiverr</span>
               <Link
                 href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective"
+                target="_blank"
                 className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500"
               >
                 Fiverr

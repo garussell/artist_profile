@@ -111,10 +111,7 @@ export default function ProjectsPage() {
               </ul>
               {selectedProProjectIndex !== null && (
                 <div 
-                  className="absolute right-full mr-4 w-full p-4 z-10"
-                  style={{ 
-                    transform: `translateX(-70%) translateY(-90%)`,
-                  }}
+                  className="absolute right-full mr-4 w-full p-4 z-10 transform -translate-x-36 -translate-y-full"
                 >
                   <Image
                     src={urlFor(data.proProjects[selectedProProjectIndex].heroImage).url()}
@@ -154,10 +151,7 @@ export default function ProjectsPage() {
               </ul>
               {selectedPersProjectIndex !== null && (
                 <div 
-                  className="absolute left-full ml-4 w-full p-4 z-10"
-                  style={{ 
-                    transform: `translateX(100%) translateY(-95%)`,
-                  }}
+                  className="absolute left-full ml-4 w-full p-4 z-10 transform translate-x-2/3 -translate-y-full"
                 >
                   <Image
                     src={urlFor(data.persProjects[selectedPersProjectIndex].heroImage).url()}
@@ -197,10 +191,7 @@ export default function ProjectsPage() {
               </ul>
               {selectedTuringProjectIndex !== null && (
                 <div 
-                  className="absolute right-full mr-4 w-full p-4 z-10"
-                  style={{ 
-                    transform: `translateX(-100%) translateY(-90%)`,
-                  }}
+                  className="absolute right-full mr-4 w-full p-4 z-10 transform -translate-x-full -translate-y-full"
                 >
                   <Image
                     src={urlFor(data.turingProjects[selectedTuringProjectIndex].heroImage).url()}

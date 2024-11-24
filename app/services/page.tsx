@@ -35,7 +35,7 @@ export default async function ServicesPage() {
               ))}
               <li className="flex justify-between sm:mt-20 sm:mx-10 sm:pr-10 sm:flex-wrap sm:justify-center">
                 <span>Book a job on Fiverr</span>
-                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500">Fiverr</Link>
+                <Link href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective" target="_blank" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500">Fiverr</Link>
               </li>
             </ul>
           </div>
