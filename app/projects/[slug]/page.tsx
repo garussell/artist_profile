@@ -54,7 +54,9 @@ const ProjectShow: React.FC = () => {
           <h1 className="text-8xl sm:text-5xl font-bold text-center">{project.name}</h1>
           <div className="mt-8 text-left">
             <p>{project.description}</p>
+            {project.link && (
             <Link href={project.link} target="_blank" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500 flex justify-center">Link to Project</Link>
+            )}
           </div>
         </div>
       </section>
