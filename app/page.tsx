@@ -5,30 +5,39 @@ import { PortableText } from '@portabletext/react';
 import { client } from '../sanity/lib/client';
 import { Data } from './types';
 import Link from 'next/link';
+import { TypedObject } from 'sanity';
 
 const fetchData = async (): Promise<Data> => {
-  const [roles, careerSummaries, traits, offerings, featured, services] = await Promise.all([
-    client.fetch(`*[_type == "role"]`),
-    client.fetch(`*[_type == "careerSummary"]`),
-    client.fetch(`*[_type == "traits"]`),
-    client.fetch(`*[_type == "offerings"]`),
-    client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
-    client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
-  ]);
+  try {
+    const [roles, careerSummaries, traits, offerings, featured, services] = await Promise.all([
+      client.fetch(`*[_type == "role"]`),
+      client.fetch(`*[_type == "careerSummary"]`),
+      client.fetch(`*[_type == "traits"]`),
+      client.fetch(`*[_type == "offerings"]`),
+      client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
+      client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
+    ]);
+    
+    // console.log('Fetched data:', { roles, careerSummaries, traits, offerings, featured, services });
+    return {
+      roles,
+      careerSummaries,
+      traits,
+      offerings,
+      featured,
+      services,
+    };
 
-  return {
-    roles,
-    careerSummaries,
-    traits,
-    offerings,
-    featured,
-    services,
-  };
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw new Error('Failed to fetch data');
+  }
 };
 
 export default async function Home() {
   const data = await fetchData();
-
+  console.log('Data:', data.careerSummaries);
   return (
     <div>
       {/* Role and Title */}
@@ -48,7 +57,18 @@ export default async function Home() {
       <section>
         <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
           {data.careerSummaries.map(summary => (
-            <p key={summary._id}>{summary.content[0]?.children[0]?.text}</p>
+            <div key={summary._id}>
+            <PortableText
+              value={summary.content as unknown as TypedObject[]}
+              components={{
+                block: {
+                  normal: ({ children }) => (
+                    <p className="mb-4">{children}</p> 
+                  ),
+                },
+              }}
+            />
+          </div>
           ))}
         </div>
         <div className="flex justify-center text-center">
