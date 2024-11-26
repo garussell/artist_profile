@@ -8,7 +8,11 @@ export interface Role {
 
 export interface CareerSummary {
   _id: string;
-  content: { children: { text: string }[] }[];
+  // content: Array<{
+  //   [x: string]: string | { text: string }[];
+  //   children: { text: string }[];
+  // }>;
+  content: { block : TypedObject[]}
 }
 
 export interface Traits {
