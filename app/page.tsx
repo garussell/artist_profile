@@ -37,7 +37,8 @@ const fetchData = async (): Promise<Data> => {
 
 export default async function Home() {
   const data = await fetchData();
-  console.log('Data:', data.careerSummaries);
+  // console.log('Data:', data.careerSummaries);
+  
   return (
     <div>
       {/* Role and Title */}
