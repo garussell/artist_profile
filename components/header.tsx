@@ -72,6 +72,7 @@ export default function Header() {
             <button
               onClick={toggleMenu}
               className="text-black dark:text-white p-2 focus:outline-none"
+              aria-label="Open Menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
