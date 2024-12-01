@@ -48,6 +48,7 @@ const BlogContent: React.FC = () => {
     block: {
       h1: ({ children }) => <h1 className="text-3xl font-bold mb-4 text-black dark:text-white">{children}</h1>,
       h2: ({ children }) => <h2 className="text-2xl font-semibold mb-4 text-black dark:text-white">{children}</h2>,
+      h3: ({ children }) => <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">{children}</h3>,
       normal: ({ children }) => <p className="text-black dark:text-white mb-4">{children}</p>,
     },
     marks: {

@@ -32,16 +32,16 @@ export default function Footer() {
             <Link href="/contact" className="block mb-2 hover:text-gray-400 duration-500">Contact</Link>
           </div>
           <div className="mt-4 text-3xl text-right">
-            <Link href="https://www.linkedin.com/in/garyallenrusselljr/" className="block mb-2 hover:text-gray-400 duration-500">
+            <Link href="https://www.linkedin.com/in/garyallenrusselljr/" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to LinkedIn Profile">
               <FontAwesomeIcon icon={faLinkedin} />
             </Link>
-            <Link href="https://github.com/garussell" className="block mb-2 hover:text-gray-400 duration-500">
+            <Link href="https://github.com/garussell" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitHub Profile">
               <FontAwesomeIcon icon={faGithub} />
             </Link>
-            <Link href="https://gitlab.com/garussell" className="block mb-2 hover:text-gray-400 duration-500">
+            <Link href="https://gitlab.com/garussell" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitLab Profile">
               <FontAwesomeIcon icon={faGitlab} />
             </Link>
-            <Link href="mailto:allenrusselldev@gmail.com" className="block mb-2 hover:text-gray-400 duration-500">
+            <Link href="mailto:allenrusselldev@gmail.com" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to Allen's gmail will open mailto service">
               <FontAwesomeIcon icon={faEnvelope} />
             </Link>
           </div>

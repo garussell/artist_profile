@@ -28,7 +28,7 @@ export default function Header() {
       <li className="relative">
         <Link
           href={href}
-          className={`hover:text-gray-400 dark:text-white text-black ${isActive(href) ? 'text-black dark:text-white' : ''}`}
+          className={`hover:text-gray-400 dark:hover:text-gray-400 dark:text-white text-black ${isActive(href) ? 'text-black dark:text-white' : ''}`}
         >
           {label}
         </Link>
@@ -47,8 +47,8 @@ export default function Header() {
   return (
     <header className=""> 
       <nav className="mr-4">
-        <ul className="flex justify-between items-center p-8">
-          <li className="mr-auto">
+        <div className="flex justify-between items-center p-8 list-none">
+          <div className="mr-auto">
             <Link
               href="/"
               className={`
@@ -63,12 +63,12 @@ export default function Header() {
             >
               Allen Russell
             </Link>
-          </li>
+          </div>
           <div className="mr-20">
             <ThemeToggle />
           </div>
           {/* Mobile Hamburger */}
-          <li className="hidden sm:block">
+          <div className="hidden sm:block">
             <button
               onClick={toggleMenu}
               className="text-black dark:text-white p-2 focus:outline-none"
@@ -88,7 +88,7 @@ export default function Header() {
                 />
               </svg>
             </button>
-          </li>
+          </div>
           {/* Desktop Nav */}
           <div className="sm:hidden flex space-x-4">
             <NavItem href="/about" label="About" isActive={isActive} />
@@ -97,9 +97,7 @@ export default function Header() {
             <NavItem href="/projects" label="Projects" isActive={isActive} />
             <NavItem href="/contact" label="Contact" isActive={isActive} />
           </div>
-  
-        </ul>
-
+        </div>
         {/* Mobile Nav */}
         {isOpen && (
           <div className="absolute top-0 left-0 w-full bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 z-10">

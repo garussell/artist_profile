@@ -31,11 +31,11 @@ export const ThemeToggle = () => {
   return (
     <div>
       {theme === 'dark' ? (
-        <button onClick={setLightTheme} className="p-2 text-white text-3xl">
+        <button onClick={setLightTheme} className="p-2 text-white text-3xl" aria-label="toggle-light-mode">
           <FontAwesomeIcon icon={faSun} />
         </button>
       ) : (
-        <button onClick={setDarkTheme} className="p-2 text-black text-3xl">
+        <button onClick={setDarkTheme} className="p-2 text-black text-3xl" aria-label="toggle-dark-mode">
           <FontAwesomeIcon icon={faMoon} />
         </button>
       )}
