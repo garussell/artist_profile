@@ -123,7 +123,7 @@ export default async function Home() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={feature.image}
-                    alt={feature.title}
+                    alt=""
                     className="ml-4 absolute px-40 inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
                     style={{
                       transform: `translateX(50%) translateY(-${index * 30}%)`,
