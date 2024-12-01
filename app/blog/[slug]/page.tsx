@@ -54,6 +54,11 @@ const BlogContent: React.FC = () => {
     marks: {
       code: ({ children }) => <code className="bg-gray-200 dark:bg-gray-500 px-1 py-0.5 rounded text-black dark:text-white whitespace-pre-wrap">{children}</code>,
       strong: ({ children }) => <strong className="font-semibold text-black dark:text-white">{children}</strong>,
+      link: ({ children, value }) => (
+        <a href={value.href} className="text-blue-500 hover:text-blue-700 underline">
+          {children}
+        </a>
+      ),
     },
     list: {
       number: ({ children }) => <ol className="list-decimal list-inside text-black dark:text-white">{children}</ol>,
