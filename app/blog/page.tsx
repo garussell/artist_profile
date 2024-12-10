@@ -6,7 +6,7 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 
 const fetchData = async (): Promise<BlogPost[]> => {
-  const blogPosts = await client.fetch(`*[_type == "blogPost"]`);
+  const blogPosts = await client.fetch(`*[_type == "blogPost"] | order(publishedAt desc)`);
   return blogPosts;
 };
 

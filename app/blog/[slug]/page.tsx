@@ -65,8 +65,8 @@ const BlogContent: React.FC = () => {
       bullet: ({ children }) => <ul className="list-disc list-inside text-black dark:text-white">{children}</ul>,
     },
     listItem: {
-      number: ({ children }) => <li className="mb-2">{children}</li>,
-      bullet: ({ children }) => <li className="mb-2">{children}</li>,
+      number: ({ children }) => <li className="mb-2 ml-4">{children}</li>,
+      bullet: ({ children }) => <li className="mb-2 ml-8">{children}</li>,
     },
   };
 
