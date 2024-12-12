@@ -1,9 +1,22 @@
 import nodemailer from "nodemailer";
 
+function validateEmail(email: string) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
 export async function POST(req: Request) {
   try {
     // Parse the incoming request body sent from contactForm.tsx
     const { name, email, reason, message } = await req.json();
+
+    if (!name || !email || !reason || !message) {
+      return new Response(JSON.stringify({ message: "Please fill out all fields" }), { status: 400 });
+    }
+
+    if (!validateEmail(email)) {
+      return new Response(JSON.stringify({ message: "Please enter a valid email address" }), { status: 400 });
+    }
 
     // Create a transporter using SMTP
     const transporter = nodemailer.createTransport({
@@ -16,7 +29,7 @@ export async function POST(req: Request) {
 
     // Email message configuration
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
       to: process.env.RECEIVER_EMAIL, 
       subject: `Contact Form Submission: ${reason}`,
       text: `
