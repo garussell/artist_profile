@@ -1,21 +1,30 @@
 "use client";
 
 import React, { useState } from "react";
+import ReCaptcha from "./reCaptcha";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [resetRecaptcha, setResetRecaptcha] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      alert("Please verify that you are not a robot");
+      return;
+    }
 
     const formData = {
       name,
       email,
       reason,
       message,
+      recaptchaToken,
     };
 
     // Send form data to your API route
@@ -33,6 +42,10 @@ const ContactForm = () => {
       setEmail("");
       setReason("");
       setMessage("");
+      setRecaptchaToken(null);
+      setResetRecaptcha(true);
+
+      setTimeout(() => setResetRecaptcha(false), 500);
     } else {
       alert("Error submitting form. Please try again.");
     }
@@ -76,6 +89,7 @@ const ContactForm = () => {
         required
         className="p-3 rounded border border-gray-600 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
       ></textarea>
+      <ReCaptcha onTokenChange={setRecaptchaToken} reset={resetRecaptcha} />
       <button 
         type="submit" 
         className="p-2 border rounded bg-white w-20 text-black font-semibold hover:bg-black hover:text-white transition duration-300"
