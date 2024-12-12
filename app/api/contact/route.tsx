@@ -8,14 +8,25 @@ function validateEmail(email: string) {
 export async function POST(req: Request) {
   try {
     // Parse the incoming request body sent from contactForm.tsx
-    const { name, email, reason, message } = await req.json();
+    const { name, email, reason, message, recaptchaToken } = await req.json();
 
-    if (!name || !email || !reason || !message) {
+    if (!name || !email || !reason || !message || !recaptchaToken) {
       return new Response(JSON.stringify({ message: "Please fill out all fields" }), { status: 400 });
     }
 
     if (!validateEmail(email)) {
       return new Response(JSON.stringify({ message: "Please enter a valid email address" }), { status: 400 });
+    }
+
+    // Verify the reCAPTCHA token
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${recaptchaToken}`;
+
+    const recaptchaResponse = await fetch(verificationUrl, { method: "POST" });
+    const recaptchaData = await recaptchaResponse.json();
+
+    if (!recaptchaData.success) {
+      return new Response(JSON.stringify({ message: "Failed reCAPTCHA verification" }), { status: 400 });
     }
 
     // Create a transporter using SMTP
