@@ -311,22 +311,8 @@ export const musicProject: SchemaTypeDefinition = {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'goals',
-      title: 'Goals',
-      type: 'array',
-      of: [{ type: 'block' }],
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'technologies',
-      title: 'Technologies',
-      type: 'array',
-      of: [{ type: 'block' }],
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'link',
-      title: 'Link',
+      name: 'video',
+      title: 'Video',
       type: 'url',
     },
     {
@@ -339,14 +325,8 @@ export const musicProject: SchemaTypeDefinition = {
       },
     },
     {
-      name: 'heroImage',
-      title: 'Hero Image',
-      type: 'image',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'secondaryImage',
-      title: 'Secondary Image',
+      name: 'image',
+      title: 'Image',
       type: 'image',
       validation: Rule => Rule.required(),
     },

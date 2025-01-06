@@ -13,8 +13,8 @@ const musicProjects: MusicProject[] = await client.fetch(`
     _id,
     name,
     description,
-    heroImage,
-    link,
+    image,
+    video,
     slug,
   }
 `);
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
                   className="absolute right-full mr-4 w-full p-4 z-10 transform -translate-x-full -translate-y-full"
                 >
                   <Image
-                    src={urlFor(data[selectedProjectIndex].heroImage).url()}
+                    src={urlFor(data[selectedProjectIndex].image).url()}
                     alt={data[selectedProjectIndex].name}
                     width={400}
                     height={400}
@@ -108,7 +108,7 @@ export default function ProjectsPage() {
                   {selectedProjectIndex === index && (
                     <div className="mt-2">
                       <Image
-                        src={urlFor(project.heroImage).url()}
+                        src={urlFor(project.image).url()}
                         alt={project.name}
                         width={300}
                         height={300}

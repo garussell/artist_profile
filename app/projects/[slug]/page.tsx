@@ -2,19 +2,16 @@
 
 import React, { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client';
-import { ProfessionalProject, PersonalProject, TuringProject } from '../../types';
+import { MusicProject } from '../../types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { urlFor } from '@/sanity/lib/image';
 import { useParams } from 'next/navigation';
-import { PortableText } from 'next-sanity';
 
-type Project = ProfessionalProject | PersonalProject | TuringProject;
-
-const fetchProjectBySlug = async (slug: string): Promise<Project | null> => {
+const fetchProjectBySlug = async (slug: string): Promise<MusicProject | null> => {
   const project = await client.fetch(
     `
-      *[_type in ["professionalProject", "personalProject", "turingProject"] && slug.current == $slug][0]
+      *[_type in ["musicProject"] && slug.current == $slug][0]
     `,
     { slug }
   );
@@ -24,7 +21,7 @@ const fetchProjectBySlug = async (slug: string): Promise<Project | null> => {
 const ProjectShow: React.FC = () => {
   const params = useParams();
   const slug = params.slug as string;
-  const [project, setProject] = useState<Project | null>(null);
+  const [project, setProject] = useState<MusicProject | null>(null);
 
   useEffect(() => {
     if (slug) {
@@ -41,7 +38,7 @@ const ProjectShow: React.FC = () => {
       <section className="flex flex-col items-center mt-20">
         <div className="w-3/4">
           <Image
-            src={urlFor(project.heroImage).url()}
+            src={urlFor(project.image).url()}
             alt={project.name}
             width={1200}
             height={800}
@@ -54,31 +51,20 @@ const ProjectShow: React.FC = () => {
           <h1 className="text-8xl sm:text-5xl font-bold text-center">{project.name}</h1>
           <div className="mt-8 text-left">
             <p>{project.description}</p>
-            {project.link && (
-            <Link href={project.link} target="_blank" className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500 flex justify-center">Link to Project</Link>
+            {project.video && (
+              <div className="aspect-w-16 aspect-h-9 mt-8 flex justify-center">
+                <iframe
+                  width="640"
+                  height="360"
+                  src={project.video}
+                  title={project.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture, web-share"
+                  referrerPolicy='strict-origin-when-cross-origin'
+                  frameBorder="0"
+                  allowFullScreen>
+                </iframe>
+              </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      <section className="flex flex-col items-center mt-20 sm:mt-0">
-        <div className="flex flex-wrap w-full max-w-screen-xl items-center gap-2">
-          <div className="w-full md:w-1/2 p-4 mb-8 md:mb-0">
-            <Image
-              src={urlFor(project.secondaryImage).url()}
-              alt={`${project.name} Secondary Image`}
-              width={600}
-              height={400}
-              layout="responsive"
-              objectFit="cover"
-              className="rounded-lg"
-            />
-          </div>
-          <div className="w-full md:w-1/2 p-8 prose">
-            <h2 className="text-2xl sm:text-4xl font-bold">Goals</h2>
-            <PortableText value={project.goals} />
-            <h2 className="text-2xl sm:text-4xl font-bold mt-4">Technologies</h2>
-            <PortableText value={project.technologies} />
           </div>
         </div>
       </section>
