@@ -117,21 +117,29 @@ export default async function Home() {
           <div className="prose text-left max-w-screen-lg w-full">
             <h3 className="mt-20 mb-10 ml-8 sm:mt-0">Featured Work</h3>
             <ul className="list-none space-y-6">
-              {data.featured.map((feature, index) => (
-                <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
-                  <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={feature.image}
-                    alt=""
-                    role="presentation"
-                    className="ml-4 absolute px-40 inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
-                    style={{
-                      transform: `translateX(50%) translateY(-${index * 30}%)`,
-                    }}
-                  />
-                </li>
-              ))}
+            {data.featured.map((feature, index) => (
+              <li key={`${feature._id}-${index}`} className="relative group flex items-center justify-between">
+                <div className="w-2/3">
+                  <h2 className="m-0 hover:text-gray-600 hover:scale-105 duration-500">
+                    {feature.title}
+                  </h2>
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={feature.image}
+                  alt=""
+                  role="presentation"
+                  className="absolute px-40 inset-0 object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"
+                  style={{
+                    transform: `translateX(50%) translateY(${
+                      index === 0 ? '-30%' :
+                      index === 1 ? '-60%' :
+                      index === 2 ? '-90%' : '0%'
+                    })`,
+                  }}
+                />
+              </li>
+            ))}
             </ul>
           </div>
           <div className="m-8 border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500 w-16">
