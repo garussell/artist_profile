@@ -49,15 +49,14 @@ export default function ProjectsPage() {
       {/* Desktop View */}
       <div className="hidden md:block">
         {/* Projects Section - Desktop */}
-        <section className="flex flex-col items-end mb-60">
+        <section className="flex flex-col items-end justify-between mb-60">
           <div className="prose m-20">
-            {/* <h2 className="text-right">Turing Projects</h2> */}
+            <h2 className="text-right">Drumming Projects</h2>
             <div className="relative">
               <ul className="list-none space-y-6">
                 {data.map((project, index) => (
                   <li 
                     key={`${project._id}-${index}`} 
-                    className="relative group flex items-center justify-between cursor-pointer"
                     onClick={() => handleProjectClick(index)}
                   >
                     <h3 className={`m-0 hover:text-gray-600 hover:scale-110 duration-500 text-right ${selectedProjectIndex === index ? 'text-gray-200' : ''}`}>
@@ -68,7 +67,11 @@ export default function ProjectsPage() {
               </ul>
               {selectedProjectIndex !== null && (
                 <div 
-                  className="absolute right-full mr-4 w-full p-4 z-10 transform -translate-x-full -translate-y-full"
+                  className="absolute left-0 top-0 flex flex-col items-start space-y-4"
+                  style={{
+                    transform: `translate(-150%, 0)`, 
+                    width: '400px', 
+                  }}
                 >
                   <Image
                     src={urlFor(data[selectedProjectIndex].image).url()}
@@ -76,7 +79,10 @@ export default function ProjectsPage() {
                     width={400}
                     height={400}
                   />
-                  <p>{data[selectedProjectIndex].description.slice(0, 150)}{data[selectedProjectIndex].description.length > 150 && '...'}</p>
+                  <p className="text-sm text-gray-400">
+                    {data[selectedProjectIndex].description.slice(0, 150)}
+                    {data[selectedProjectIndex].description.length > 150 && '...'}
+                  </p>
                   <Link href={`/projects/${data[selectedProjectIndex].slug.current}`} passHref>
                     <button className="mt-4 px-4 py-2 bg-black border-2 text-white rounded hover:bg-white hover:text-black duration-500">
                       Read More

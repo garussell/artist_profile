@@ -49,13 +49,13 @@ const ProjectShow: React.FC = () => {
         </div>
         <div className="w-full max-w-screen-lg p-8 mt-10 prose prose-lg">
           <h1 className="text-8xl sm:text-5xl font-bold text-center">{project.name}</h1>
-          <div className="mt-8 text-left">
+          <div className="mt-8 text-center">
             <p>{project.description}</p>
             {project.video && (
               <div className="aspect-w-16 aspect-h-9 mt-8 flex justify-center">
                 <iframe
-                  width="640"
-                  height="360"
+                  width="960"
+                  height="540"
                   src={project.video}
                   title={project.name}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture, web-share"
