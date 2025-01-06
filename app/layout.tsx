@@ -20,8 +20,8 @@ const vigaReg = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Gary Allen Russell Jr - Full Stack Developer",
-  description: "Professional portfolio for a modern developer",
+  title: "Gary Allen Russell Jr - Drummer",
+  description: "Professional portfolio for a modern drummer.",
 };
 
 export default function RootLayout({

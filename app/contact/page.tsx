@@ -24,19 +24,10 @@ export default function Contact() {
             If you are ready to start your next project or have any other professional interest in my services, let&apos;s connect!
           </h6>
           <h6 className="text-lg leading-relaxed">
-            For website development, please{" "}
-            <a
-              href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              book a gig on Fiverr
-            </a>
-            . For any other questions or inquiries, feel free to send me a message here.
+            For any questions or inquiries, feel free to send me a message here.
           </h6>
           <h6 className="text-lg leading-relaxed">
-            I am open for new contract work and/or to discuss future employment opportunities.
+            I am open for new contract work and/or to discuss future music opportunities.
           </h6>
         </div>
 

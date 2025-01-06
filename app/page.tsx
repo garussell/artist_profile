@@ -3,25 +3,25 @@
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import { client } from '../sanity/lib/client';
-import { Data } from './types';
+import { HomepageData } from './types';
 import Link from 'next/link';
 import { TypedObject } from 'sanity';
 
-const fetchData = async (): Promise<Data> => {
+const fetchData = async (): Promise<HomepageData> => {
   try {
-    const [roles, careerSummaries, traits, offerings, featured, services] = await Promise.all([
+    const [roles, profileSummary, traits, offerings, featured, services] = await Promise.all([
       client.fetch(`*[_type == "role"]`),
-      client.fetch(`*[_type == "careerSummary"]`),
+      client.fetch(`*[_type == "profileSummary"]`),
       client.fetch(`*[_type == "traits"]`),
       client.fetch(`*[_type == "offerings"]`),
       client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
       client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
     ]);
     
-    // console.log('Fetched data:', { roles, careerSummaries, traits, offerings, featured, services });
+    // console.log('Fetched data:', { profileSummaries});
     return {
       roles,
-      careerSummaries,
+      profileSummary,
       traits,
       offerings,
       featured,
@@ -37,7 +37,7 @@ const fetchData = async (): Promise<Data> => {
 
 export default async function Home() {
   const data = await fetchData();
-  // console.log('Data:', data.careerSummaries);
+  // console.log('Data:', data);
   
   return (
     <div>
@@ -54,10 +54,10 @@ export default async function Home() {
       </section>
       <hr className="w-full" />
 
-      {/* Career Summary */}
+      {/* Profile Summary */}
       <section>
         <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
-          {data.careerSummaries.map(summary => (
+          {data.profileSummary.map(summary => (
             <div key={summary._id}>
             <PortableText
               value={summary.content as unknown as TypedObject[]}
@@ -153,7 +153,7 @@ export default async function Home() {
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full object-cover mb-2 -translate-x-6"
+                    className="w-full object-cover mb-2"
                   />
                 </li>
               ))}
@@ -166,7 +166,7 @@ export default async function Home() {
       </div>
 
       {/* Services */}
-      <section className="flex justify-end mr-20 mb-40">
+      <section className="flex justify-end mr-20 mb-40 mt-40">
         <div className="prose prose-sm md:prose-md lg:prose-lg mb-10 p-2">
           <h2>Services</h2>
           <ul className="grid grid-cols-1 list-none">
@@ -176,16 +176,6 @@ export default async function Home() {
                 <span className="ml-20 sm:hidden">{service.price}</span>
               </li>
             ))}
-            <li className="flex justify-between">
-              <span>Book a job on Fiverr</span>
-              <Link
-                href="https://www.fiverr.com/allenrusselldev/build-your-website-to-be-intuitive-and-cost-effective"
-                target="_blank"
-                className="text-blue-500 hover:scale-110 hover:text-gray-400 duration-500"
-              >
-                Fiverr
-              </Link>
-            </li>
           </ul>
         </div>
       </section>

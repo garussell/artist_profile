@@ -6,13 +6,13 @@ export interface Role {
   subtitle: string;
 }
 
-export interface CareerSummary {
+export interface ProfileSummary {
   _id: string;
   // content: Array<{
   //   [x: string]: string | { text: string }[];
   //   children: { text: string }[];
   // }>;
-  content: { block : TypedObject[]}
+  content: TypedObject[];
 }
 
 export interface Traits {
@@ -79,6 +79,7 @@ export interface BlogPost {
   slug: {
     current: string;
   };
+  video: string;
 }
 
 export interface BlogContentProps {
@@ -87,7 +88,7 @@ export interface BlogContentProps {
   };
 }
 
-export interface ProfessionalProject {
+export interface MusicProject {
   _id: string;
   name: string;
   description: string;
@@ -101,43 +102,9 @@ export interface ProfessionalProject {
   };
 }
 
-export interface PersonalProject {
-  _id: string;
-  name: string;
-  description: string;
-  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
-  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
-  link: string;
-  heroImage: string;
-  secondaryImage: string; 
-  slug: {
-    current: string;
-  };
-}
-
-export interface TuringProject {
-  _id: string;
-  name: string;
-  description: string;
-  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
-  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
-  link: string;
-  heroImage: string;
-  secondaryImage: string; 
-  slug: {
-    current: string;
-  };
-}
-
-export interface Projects {
-  proProjects: ProfessionalProject[];
-  persProjects: PersonalProject[];
-  turingProjects: TuringProject[];
-}
-
-export interface Data {
+export interface HomepageData {
   roles: Role[];
-  careerSummaries: CareerSummary[];
+  profileSummary: ProfileSummary[];
   traits: Traits[];
   offerings: Offerings[];
   featured: Featured[];
