@@ -77,6 +77,20 @@ const BlogContent: React.FC = () => {
         {new Date(post.publishedAt).toLocaleDateString()}
       </p>
       <PortableText value={filteredContent} components={components} />
+      {post.video && (
+        <div className="aspect-w-16 aspect-h-9 mt-8">
+          <iframe
+            width="640"
+            height="360"
+            src={post.video}
+            title={post.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture, web-share"
+            referrerPolicy='strict-origin-when-cross-origin'
+            frameBorder="0"
+            allowFullScreen>
+          </iframe>
+        </div>
+      )}
       <div className="border-2 rounded hover:bg-gray-200 hover:text-black duration-500 w-14 mt-4 p-2">
         <Link href="/blog" passHref>
           Back

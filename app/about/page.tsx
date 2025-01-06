@@ -5,47 +5,12 @@ import profilePic from '../../public/profilePic.png';
 import mountains from '../../public/mountains.jpg';
 import { client } from '../../sanity/lib/client';
 import { CurriculumVitae } from '../types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  IconDefinition, 
-  faGolang, 
-  faReact, 
-  faJs, 
-  faBootstrap, 
-  faCss3, 
-  faDocker, 
-  faWordpress, 
-  faRaspberryPi, 
-  faGitlab, 
-  faGithub,
-  faCpanel,
-  faHtml5,
-  faFigma,
-} from '@fortawesome/free-brands-svg-icons';
-import { faGem } from '@fortawesome/free-regular-svg-icons';
 import { urlFor } from '@/sanity/lib/image';
 
 const fetchData = async (): Promise<CurriculumVitae> => {
   const curriculumVitae = await client.fetch(`*[_type == "curriculumVitae"]`);
   return curriculumVitae[0]; 
 };
-
-const skillsIcons: { icon: IconDefinition }[] = [
-  { icon: faGolang },
-  { icon: faGem },
-  { icon: faReact },
-  { icon: faJs },
-  { icon: faBootstrap },
-  { icon: faCss3 },
-  { icon: faDocker },
-  { icon: faWordpress },
-  { icon: faRaspberryPi },
-  { icon: faGitlab },
-  { icon: faGithub },
-  { icon: faCpanel },
-  { icon: faHtml5 },
-  { icon: faFigma },
-];
 
 export default async function About() {
   const data = await fetchData();
@@ -70,7 +35,7 @@ export default async function About() {
         </div>
         <div className="w-full py-10 flex justify-center mt-20">
           <div className="prose prose-sm md:prose-md lg:prose-lg max-w-4xl mx-auto p-4 text-center sm:text-start">
-            <h2 className="mb-4">Curriculum Vitae</h2>
+            <h2 className="mb-4">What I Do</h2>
             <div>
               {data?.intro ? (
                 data.intro.map((block, blockIndex) => (
@@ -115,11 +80,11 @@ export default async function About() {
         </div>
         <div className="prose prose-sm md:prose-md lg:prose-lg text-left p-4 sm:p-px">
           <div className="flex flex-wrap w-screen">
-            {skillsIcons.map((skill, index) => (
+            {/* {skillsIcons.map((skill, index) => (
               <div key={index} className="m-4 text-center">
                 <FontAwesomeIcon icon={skill.icon} size="4x" />
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
@@ -167,7 +132,7 @@ export default async function About() {
       </section>
       <section className="flex flex-col items-center p-8 mt-10">
         <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center w-full p-4 sm:mt-20">
-          <h2 className="sm:text-5xl">My World</h2>
+          <h2 className="sm:text-5xl">My Extended Universe</h2>
           {data?.myWorld ? (
             <div className="flex flex-col gap-20">
               {data.myWorld.map((world, index) => (
@@ -187,7 +152,7 @@ export default async function About() {
                       />
                     ))}
                   </div>
-                  <div className="w-1/3 text-left flex-grow sm:w-full">
+                  <div className={`w-1/3 ${index % 2 === 0 ? "text-left" : "text-right"} flex-grow sm:w-full`}>
                     <h2>{world.category}</h2>
                     <p>{world.description}</p>
                   </div>
@@ -195,25 +160,8 @@ export default async function About() {
               ))}
             </div>
           ) : (
-            <p>No world found.</p>
+            <p>No extended universe found.</p>
           )}
-        </div>
-      </section>
-      <section className="m-20 mb-40 flex justify-center">
-        <div className="prose prose-fullwidth prose-sm md:prose-md lg:prose-lg text-center max-w-screen-lg w-full p-4">
-          <h3 className="sm:text-3xl">Audio-Visual Editing</h3>
-          <div className="w-full flex justify-center">
-            <iframe 
-              width="640" 
-              height="360" 
-              src="https://www.youtube.com/embed/OaHSILtvV5o?si=WoQSOAqgNp3pp-xR" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
-              allowFullScreen>
-            </iframe>
-          </div>
         </div>
       </section>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ReCaptcha from "./reCaptcha";
+// import ReCaptcha from "./reCaptcha";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -9,7 +9,7 @@ const ContactForm = () => {
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const [resetRecaptcha, setResetRecaptcha] = useState(false);
+  // const [resetRecaptcha, setResetRecaptcha] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const ContactForm = () => {
       recaptchaToken,
     };
 
-    // Send form data to your API route
+    // Send form data to API route
     const response = await fetch("../api/contact", {
       method: "POST",
       headers: {
@@ -43,9 +43,9 @@ const ContactForm = () => {
       setReason("");
       setMessage("");
       setRecaptchaToken(null);
-      setResetRecaptcha(true);
+      // setResetRecaptcha(true);
 
-      setTimeout(() => setResetRecaptcha(false), 500);
+      // setTimeout(() => setResetRecaptcha(false), 500);
     } else {
       alert("Error submitting form. Please try again.");
     }
@@ -76,10 +76,10 @@ const ContactForm = () => {
         className="p-3 rounded border border-gray-600 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         <option value="" disabled>Select Reason for Contact</option>
-        <option value="Consultation">Consultation</option>
-        <option value="Development">Development</option>
-        <option value="Interview">Interview</option>
-        <option value="Referral">Referral</option>
+        <option value="Recording">Recording</option>
+        <option value="Subbing">Subbing</option>
+        <option value="Lessons">Lessons</option>
+        <option value="Feedback">Feedback</option>
         <option value="Other">Other</option>
       </select>
       <textarea
@@ -89,7 +89,7 @@ const ContactForm = () => {
         required
         className="p-3 rounded border border-gray-600 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
       ></textarea>
-      <ReCaptcha onTokenChange={setRecaptchaToken} reset={resetRecaptcha} />
+      {/* <ReCaptcha onTokenChange={setRecaptchaToken} reset={resetRecaptcha} /> */}
       <button 
         type="submit" 
         className="p-2 border rounded bg-white w-20 text-black font-semibold hover:bg-black hover:text-white transition duration-300"

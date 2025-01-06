@@ -19,7 +19,7 @@ export default function Footer() {
                 duration-500 border-4 p-2 rounded-lg">
               Allen Russell
             </Link>
-            <h2 className="mt-6 ml-2">Full Stack Developer</h2>
+            <h2 className="mt-6 ml-2">Drums & Percussion</h2>
             <div className="mt-4">
               <ThemeToggle />
             </div>
@@ -48,7 +48,6 @@ export default function Footer() {
         </div>
         <hr className="w-screen" />
         <div className="text-center mt-8 text-sm">
-          <p>Built with Next/Sanity</p>
           <p>Gary Allen Russell Jr 2024 &copy;</p>
         </div>
       </div>

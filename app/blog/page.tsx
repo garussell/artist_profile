@@ -22,8 +22,8 @@ export default function Blog() {
       <section className="mt-10 mb-20">
         <div className="uppercase flex justify-end w-full">
           <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg text-right mr-10 sm:mr-4">
-            <h2 className="m-0">My Thoughts,</h2>
-            <h1>Exactly</h1>
+            <h2 className="m-0">My Mind,</h2>
+            <h1>On Music</h1>
           </div>
         </div>
       </section>
