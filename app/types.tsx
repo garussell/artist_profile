@@ -92,11 +92,8 @@ export interface MusicProject {
   _id: string;
   name: string;
   description: string;
-  goals: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>; 
-  technologies: Array<{ _key: string; _type: string; children: Array<{ _key: string; _type: string; text: string }> }>;  
-  link: string;
-  heroImage: string;
-  secondaryImage: string; 
+  video: string;
+  image: string;
   slug: {
     current: string;
   };
