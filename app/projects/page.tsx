@@ -8,23 +8,26 @@ import { urlFor } from '@/sanity/lib/image';
 import Contact from '../contact/page';
 import { MusicProject } from '../types';
 
-const musicProjects: MusicProject[] = await client.fetch(`
-  *[_type == "musicProject"]{
-    _id,
-    name,
-    description,
-    image,
-    video,
-    slug,
-  }
-`);
-
 export default function ProjectsPage() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [data, setData] = useState<MusicProject[] | null>(null);
 
   useEffect(() => {
-    setData(musicProjects);
+    const fetchMusicProjects = async () => {
+      const musicProjects: MusicProject[] = await client.fetch(`
+        *[_type == "musicProject"]{
+          _id,
+          name,
+          description,
+          image,
+          video,
+          slug,
+        }
+      `);
+      setData(musicProjects);
+    };
+
+    fetchMusicProjects();
   }, []);
 
   const handleProjectClick = (index: number) => {
