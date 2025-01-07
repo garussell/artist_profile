@@ -103,7 +103,7 @@ export default function ProjectsPage() {
         {/* Projects Section - Mobile */}
         <section className="flex flex-col mb-40 mt-40">
           <div className="prose prose-sm md:prose-md lg:prose-lg mb-4">
-            <h1 className="m-0">Turing</h1>
+            <h1 className="m-0">Drumming</h1>
             <h1>Projects</h1>
             <ul className="list-none space-y-4">
               {data.map((project, index) => (
