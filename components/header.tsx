@@ -93,7 +93,6 @@ export default function Header() {
           {/* Desktop Nav */}
           <div className="sm:hidden flex space-x-4">
             <NavItem href="/about" label="About" isActive={isActive} />
-            <NavItem href="/blog" label="Blog" isActive={isActive} />
             <NavItem href="/services" label="Services" isActive={isActive} />
             <NavItem href="/projects" label="Projects" isActive={isActive} />
             <NavItem href="/contact" label="Contact" isActive={isActive} />
@@ -114,9 +113,6 @@ export default function Header() {
             <ul className="flex flex-col items-end justify-center h-full space-y-4 m-8">
               <li onClick={closeMenu}>
                 <Link href="/about" className={`hover:text-gray-400 dark:hover:text-gray-400 ${isActive('/about') ? 'text-black dark:text-white' : 'text-black dark:text-white'}`}>About</Link>
-              </li>
-              <li onClick={closeMenu}>
-                <Link href="/blog" className={`hover:text-gray-400 dark:hover:text-gray-400 ${isActive('/blog') ? 'text-black dark:text-white' : 'text-black dark:text-white'}`}>Blog</Link>
               </li>
               <li onClick={closeMenu}>
                 <Link href="/services" className={`hover:text-gray-400 dark:hover:text-gray-400 ${isActive('/services') ? 'text-black dark:text-white' : 'text-black dark:text-white'}`}>Services</Link>

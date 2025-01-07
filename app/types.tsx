@@ -70,24 +70,6 @@ export interface CurriculumVitae {
   }[];  
 }
 
-export interface BlogPost {
-  _id: string;
-  title: string;
-  publishedAt: string;
-  excerpt: string;
-  content: TypedObject[];
-  slug: {
-    current: string;
-  };
-  video: string;
-}
-
-export interface BlogContentProps {
-  params: {
-    slug: string;
-  };
-}
-
 export interface MusicProject {
   _id: string;
   name: string;

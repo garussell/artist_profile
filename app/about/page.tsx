@@ -29,7 +29,7 @@ export default async function About() {
             <Image 
               src={profilePic} 
               alt="Allen Russell" 
-              className="max-w-full max-h-[800px] object-contain"
+              className="max-w-[75%] max-h-[800px] object-contain"
             />
           </div>
         </div>

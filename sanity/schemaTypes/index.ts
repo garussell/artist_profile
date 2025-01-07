@@ -245,53 +245,6 @@ export const curriculumVitae: SchemaTypeDefinition = {
   ],
 };
 
-// Blog
-export const blogPost: SchemaTypeDefinition = {
-  name: 'blogPost',
-  title: 'Blog Post',
-  type: 'document',
-  fields: [
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      validation: Rule => Rule.required(),
-      options: {
-        source: 'title',
-      },
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published At',
-      type: 'datetime',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'content',
-      title: 'Content',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'video',
-      title: 'Video',
-      type: 'url',
-    },
-  ],
-}
-
 // Projects
 export const musicProject: SchemaTypeDefinition = {
   name: 'musicProject',
@@ -334,5 +287,5 @@ export const musicProject: SchemaTypeDefinition = {
 }
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [role, profileSummary, traits, offerings, featured, services, curriculumVitae, blogPost, musicProject],
+  types: [role, profileSummary, traits, offerings, featured, services, curriculumVitae, musicProject],
 }
