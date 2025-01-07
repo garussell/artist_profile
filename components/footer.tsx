@@ -26,7 +26,6 @@ export default function Footer() {
           </div>
           <div className="mt-4 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
             <Link href="/about" className="block mb-2 hover:text-gray-400 duration-500">About</Link>
-            <Link href="/blog" className="block mb-2 hover:text-gray-400 duration-500">Blog</Link>
             <Link href="/services" className="block mb-2 hover:text-gray-400 duration-500">Services</Link>
             <Link href="/projects" className="block mb-2 hover:text-gray-400 duration-500">Projects</Link>
             <Link href="/contact" className="block mb-2 hover:text-gray-400 duration-500">Contact</Link>
