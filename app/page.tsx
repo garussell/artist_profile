@@ -6,6 +6,8 @@ import { client } from '../sanity/lib/client';
 import { HomepageData } from './types';
 import Link from 'next/link';
 import { TypedObject } from 'sanity';
+import Image from 'next/image';
+import homePic from '../public/homePic.png';
 
 const fetchData = async (): Promise<HomepageData> => {
   try {
@@ -42,16 +44,29 @@ export default async function Home() {
   return (
     <div>
       {/* Role and Title */}
-      <section className="mt-10 mb-20 h-screen sm:h-full">
-        {data.roles.map((role, index) => (
-          <div key={`${role._id}-${index}`} className="uppercase flex flex-col md:flex-row justify-end w-full">
-            <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg text-right p-8">
-              <h1>{role.title}</h1>
-              <h2>{role.subtitle}</h2>
+      <div className="flex flex-col md:flex-row items-center">
+        {/* Left Column: Image */}
+        <section className="flex justify-start mr-20 align-start sm:mr-0">
+          <Image 
+            src={homePic} 
+            alt="Allen Russell" 
+            className="max-w-[100%] max-h-auto object-contain"
+          />
+        </section>
+
+        {/* Right Column: Text */}
+        <section className="mt-10 mb-20 h-auto sm:h-full w-full md:w-1/2">
+          {data.roles.map((role, index) => (
+            <div key={`${role._id}-${index}`} className="uppercase flex flex-col md:flex-row justify-start w-full">
+              <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg text-right p-8">
+                <h1>{role.title}</h1>
+                <h2>{role.subtitle}</h2>
+              </div>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      </div>
+
       <hr className="w-full" />
 
       {/* Profile Summary */}
