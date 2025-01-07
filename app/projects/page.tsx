@@ -82,7 +82,7 @@ export default function ProjectsPage() {
                     width={400}
                     height={400}
                   />
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm">
                     {data[selectedProjectIndex].description.slice(0, 150)}
                     {data[selectedProjectIndex].description.length > 150 && '...'}
                   </p>

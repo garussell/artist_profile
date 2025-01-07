@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { TypedObject } from 'sanity';
 import Image from 'next/image';
 import homePic from '../public/homePic.png';
+import profilePic from '../public/profilePic.png';
 
 const fetchData = async (): Promise<HomepageData> => {
   try {
@@ -20,7 +21,6 @@ const fetchData = async (): Promise<HomepageData> => {
       client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
     ]);
     
-    // console.log('Fetched data:', { profileSummaries});
     return {
       roles,
       profileSummary,
@@ -39,7 +39,6 @@ const fetchData = async (): Promise<HomepageData> => {
 
 export default async function Home() {
   const data = await fetchData();
-  // console.log('Data:', data);
   
   return (
     <div>
@@ -187,21 +186,35 @@ export default async function Home() {
           </div>
         </section>
       </div>
-
-      {/* Services */}
-      <section className="flex justify-end mr-20 mb-40 mt-40">
-        <div className="prose prose-sm md:prose-md lg:prose-lg mb-10 p-2">
-          <h2>Services</h2>
-          <ul className="grid grid-cols-1 list-none">
-            {data.services.map((service, index) => (
-              <li key={`${service._id}-${index}`} className="flex justify-between">
-                <span>{service.service}</span>
-                <span className="ml-20 sm:hidden">{service.price}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="grid grid-cols-2 sm:grid-cols-1 gap-10 items-center mt-40">
+        {/* Image Column */}
+        <div className="flex justify-center">
+          <Image 
+            src={profilePic} 
+            alt="Allen Russell" 
+            className="max-w-[60%] max-h-[800px] object-contain"
+          />
         </div>
-      </section>
+        {/* Services Column */}
+        <div>
+          <section>
+            <div className="prose mb-10">
+              <h2>Services</h2>
+              <ul className="list-none">
+                {data.services.map((service, index) => (
+                  <li 
+                    key={`${service._id}-${index}`} 
+                    className="flex justify-between mb-2"
+                  >
+                    <span>{service.service}</span>
+                    <span className="ml-10">{service.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }

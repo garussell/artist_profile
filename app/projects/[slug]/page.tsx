@@ -36,7 +36,7 @@ const ProjectShow: React.FC = () => {
   return (
     <div>
       <section className="flex flex-col items-center mt-20">
-        <div className="w-3/4">
+        <div className="w-2/3">
           <Image
             src={urlFor(project.image).url()}
             alt={project.name}
@@ -48,11 +48,11 @@ const ProjectShow: React.FC = () => {
           />
         </div>
         <div className="w-full max-w-screen-lg p-8 mt-10 prose prose-lg">
-          <h1 className="text-8xl sm:text-5xl font-bold text-center">{project.name}</h1>
+          <h3 className="text-6xl sm:text-5xl font-bold text-center">{project.name}</h3>
           <div className="mt-8 text-center">
-            <p>{project.description}</p>
+            <h5>{project.description}</h5>
             {project.video && (
-              <div className="aspect-w-16 aspect-h-9 mt-8 flex justify-center">
+              <div className="aspect-w-16 aspect-h-9 mt-20 flex justify-center">
                 <iframe
                   width="960"
                   height="540"
