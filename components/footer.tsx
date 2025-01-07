@@ -1,6 +1,6 @@
 "use client";
 
-import { faLinkedin, faGithub, faGitlab } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin,faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -25,7 +25,6 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-4 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
-            <Link href="/about" className="block mb-2 hover:text-gray-400 duration-500">About</Link>
             <Link href="/services" className="block mb-2 hover:text-gray-400 duration-500">Services</Link>
             <Link href="/projects" className="block mb-2 hover:text-gray-400 duration-500">Projects</Link>
             <Link href="/contact" className="block mb-2 hover:text-gray-400 duration-500">Contact</Link>
@@ -34,13 +33,10 @@ export default function Footer() {
             <Link href="https://www.linkedin.com/in/garyallenrusselljr/" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to LinkedIn Profile">
               <FontAwesomeIcon icon={faLinkedin} />
             </Link>
-            <Link href="https://github.com/garussell" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitHub Profile">
-              <FontAwesomeIcon icon={faGithub} />
+            <Link href="https://www.youtube.com/@garyallenrusselljrdrums" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitHub Profile">
+              <FontAwesomeIcon icon={faYoutube} />
             </Link>
-            <Link href="https://gitlab.com/garussell" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitLab Profile">
-              <FontAwesomeIcon icon={faGitlab} />
-            </Link>
-            <Link href="mailto:allenrusselldev@gmail.com" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to Allen's gmail will open mailto service">
+            <Link href="mailto:garyrusselljr@gmail.com" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to Allen's gmail will open mailto service">
               <FontAwesomeIcon icon={faEnvelope} />
             </Link>
           </div>
