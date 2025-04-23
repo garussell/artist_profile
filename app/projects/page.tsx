@@ -54,7 +54,7 @@ export default function ProjectsPage() {
         {/* Projects Section - Desktop */}
         <section className="flex flex-col items-end justify-between mb-60">
           <div className="prose m-20">
-            <h2 className="text-right">Drumming Projects</h2>
+            <h2 className="text-right">Drums & Percussion</h2>
             <div className="relative">
               <ul className="list-none space-y-6">
                 {data.map((project, index) => (
@@ -103,8 +103,8 @@ export default function ProjectsPage() {
         {/* Projects Section - Mobile */}
         <section className="flex flex-col mb-40 mt-40">
           <div className="prose prose-sm md:prose-md lg:prose-lg mb-4">
-            <h1 className="m-0">Drumming</h1>
-            <h1>Projects</h1>
+            <h1 className="m-0">Drums &</h1>
+            <h1>Percussion</h1>
             <ul className="list-none space-y-4">
               {data.map((project, index) => (
                 <li key={`${project._id}-${index}`} className="relative">
