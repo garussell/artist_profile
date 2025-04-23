@@ -1,7 +1,5 @@
 "use server";
 
-export const revalidate = 60; 
-
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import { client } from '../sanity/lib/client';
