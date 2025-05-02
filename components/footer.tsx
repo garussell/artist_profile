@@ -36,14 +36,14 @@ export default function Footer() {
             <Link href="https://www.youtube.com/@garyallenrusselljrdrums" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to GitHub Profile">
               <FontAwesomeIcon icon={faYoutube} />
             </Link>
-            <Link href="mailto:garyrusselljr@gmail.com" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to Allen's gmail will open mailto service">
+            <Link href="mailto:allenteachesdrums@gmail.com" className="block mb-2 hover:text-gray-400 duration-500" aria-label="Link to Allen's gmail will open mailto service">
               <FontAwesomeIcon icon={faEnvelope} />
             </Link>
           </div>
         </div>
         <hr className="w-screen" />
         <div className="text-center mt-8 text-sm">
-          <p>Gary Allen Russell Jr 2024 &copy;</p>
+          <p>Gary Allen Russell Jr {new Date().getFullYear()} &copy;</p>
         </div>
       </div>
     </footer>
