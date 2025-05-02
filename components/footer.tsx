@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
         <hr className="w-screen" />
         <div className="text-center mt-8 text-sm">
-          <p>Gary Allen Russell Jr 2024 &copy;</p>
+          <p>Gary Allen Russell Jr {new Date().getFullYear()} &copy;</p>
         </div>
       </div>
     </footer>
