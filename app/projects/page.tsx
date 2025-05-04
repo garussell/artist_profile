@@ -30,8 +30,8 @@ export default function ProjectsPage() {
     fetchMusicProjects();
   }, []);
 
-  const handleProjectClick = (index: number) => {
-    setSelectedProjectIndex(index === selectedProjectIndex ? null : index);
+  const handleProjectHover = (index: number | null) => {
+    setSelectedProjectIndex(index);
   };
 
   if (!data) {
@@ -60,7 +60,8 @@ export default function ProjectsPage() {
                 {data.map((project, index) => (
                   <li 
                     key={`${project._id}-${index}`} 
-                    onClick={() => handleProjectClick(index)}
+                    onMouseEnter={() => handleProjectHover(index)}
+                    className="relative"
                   >
                     <h3 className={`m-0 hover:text-gray-600 hover:scale-110 duration-500 text-right ${selectedProjectIndex === index ? 'text-gray-200' : ''}`}>
                       {project.name}
@@ -110,7 +111,7 @@ export default function ProjectsPage() {
                 <li key={`${project._id}-${index}`} className="relative">
                   <h3 
                     className={`cursor-pointer ${selectedProjectIndex === index ? 'text-gray-200' : ''}`}
-                    onClick={() => handleProjectClick(index)}
+                    onClick={() => handleProjectHover(index === selectedProjectIndex ? null : index)}
                   >
                     {project.name}
                   </h3>
