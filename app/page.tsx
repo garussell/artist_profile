@@ -7,7 +7,7 @@ import { HomepageData } from './types';
 import Link from 'next/link';
 import { TypedObject } from 'sanity';
 import Image from 'next/image';
-import homePic from '../public/homePic.png';
+import homePic from '../public/homePic.jpg';
 import profilePic from '../public/profilePic.png';
 
 const fetchData = async (): Promise<HomepageData> => {
