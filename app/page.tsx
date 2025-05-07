@@ -63,10 +63,16 @@ export default async function Home() {
               </div>
             </div>
           ))}
+          {/* Contact Button */}
+          <div className="flex justify-center text-center mt-10">
+            <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
+              <Link href="/contact">Book a Lesson</Link>
+            </div>
+          </div>
         </section>
       </div>
 
-      <hr className="w-full" />
+      {/* <hr className="w-full" /> */}
 
       {/* Featured Work */}
       {/* Desktop View */}
