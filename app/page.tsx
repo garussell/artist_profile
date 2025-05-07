@@ -68,62 +68,6 @@ export default async function Home() {
 
       <hr className="w-full" />
 
-      {/* Profile Summary */}
-      <section>
-        <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
-          {data.profileSummary.map(summary => (
-            <div key={summary._id}>
-            <PortableText
-              value={summary.content as unknown as TypedObject[]}
-              components={{
-                block: {
-                  normal: ({ children }) => (
-                    <p className="mb-4">{children}</p> 
-                  ),
-                },
-              }}
-            />
-          </div>
-          ))}
-        </div>
-        <div className="flex justify-center text-center">
-          <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-black hover:text-white duration-500">
-            <Link href="/services">Services</Link>
-          </div>
-          <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
-            <Link href="/contact">Contact</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Traits */}
-      <section className="h-screen sm:h-screen flex items-center justify-start">
-        <div className="prose prose-sm md:prose-md lg:prose-lg m-20 flex flex-col items-center justify-center w-full">
-          {data.traits.map((trait, index) => (
-            <h1 key={`${trait._id}-${index}`}>{trait.trait}</h1>
-          ))}
-        </div>
-      </section>
-
-      {/* Offerings */}
-      <section className="flex justify-end mr-20 sm:mr-0">
-        <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg p-2">
-          <h2>What I Offer</h2>
-          <hr className="w-full" />
-          <ul className="list-none">
-            {data.offerings.map((offering, index) => (
-              <li key={`${offering._id}-${index}`}>
-                <h3 className="-translate-x-8 sm:-translate-x-4">{offering.title}</h3>
-                <div>
-                  <PortableText value={offering.content} />
-                </div>
-                <hr className="-translate-x-8 w-full sm:-translate-x-4" />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Featured Work */}
       {/* Desktop View */}
       <div className="hidden md:block">
@@ -186,15 +130,62 @@ export default async function Home() {
           </div>
         </section>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-1 gap-10 items-center mt-40">
-        {/* Image Column */}
-        <div className="flex justify-center">
-          <Image 
-            src={profilePic} 
-            alt="Allen Russell" 
-            className="max-w-[60%] max-h-[800px] object-contain"
-          />
+      {/* Profile Summary */}
+      <section>
+        <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
+          {data.profileSummary.map(summary => (
+            <div key={summary._id}>
+            <PortableText
+              value={summary.content as unknown as TypedObject[]}
+              components={{
+                block: {
+                  normal: ({ children }) => (
+                    <p className="mb-4">{children}</p> 
+                  ),
+                },
+              }}
+            />
+          </div>
+          ))}
         </div>
+        <div className="flex justify-center text-center">
+          <div className="mr-12 border-2 p-3 rounded-lg bg-white text-black hover:bg-black hover:text-white duration-500">
+            <Link href="/services">Services</Link>
+          </div>
+          <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
+            <Link href="/contact">Contact</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Traits */}
+      <section className="h-screen sm:h-screen flex items-center justify-start">
+        <div className="prose prose-sm md:prose-md lg:prose-lg m-20 flex flex-col items-center justify-center w-full">
+          {data.traits.map((trait, index) => (
+            <h1 key={`${trait._id}-${index}`}>{trait.trait}</h1>
+          ))}
+        </div>
+      </section>
+      {/* Offerings */}
+      <section className="flex justify-end mr-20 sm:mr-0">
+        <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg p-2">
+          <h2>What I Offer</h2>
+          <hr className="w-full" />
+          <ul className="list-none">
+            {data.offerings.map((offering, index) => (
+              <li key={`${offering._id}-${index}`}>
+                <h3 className="-translate-x-8 sm:-translate-x-4">{offering.title}</h3>
+                <div>
+                  <PortableText value={offering.content} />
+                </div>
+                <hr className="-translate-x-8 w-full sm:-translate-x-4" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <div className="grid grid-cols-2 sm:grid-cols-1 gap-10 items-center mt-40 ml-10">
+        
         {/* Services Column */}
         <div>
           <section>
@@ -213,6 +204,14 @@ export default async function Home() {
               </ul>
             </div>
           </section>
+        </div>
+        {/* Image Column */}
+        <div className="flex justify-center">
+          <Image 
+            src={profilePic} 
+            alt="Allen Russell" 
+            className="max-w-[60%] max-h-[800px] object-contain"
+          />
         </div>
       </div>
     </div>
