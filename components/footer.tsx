@@ -19,12 +19,12 @@ export default function Footer() {
                 duration-500 border-4 p-2 rounded-lg">
               Allen Russell
             </Link>
-            <h2 className="mt-6 ml-2">Drums & Percussion</h2>
+            {/* <h2 className="mt-6 ml-2">Drums & Percussion</h2> */}
             <div className="mt-4">
               <ThemeToggle />
             </div>
           </div>
-          <div className="mt-4 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
+          <div className="-mt-12 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
             <Link href="/services" className="block mb-2 hover:text-gray-400 duration-500">Services</Link>
             <Link href="/projects" className="block mb-2 hover:text-gray-400 duration-500">Projects</Link>
             <Link href="/contact" className="block mb-2 hover:text-gray-400 duration-500">Contact</Link>

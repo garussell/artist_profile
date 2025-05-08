@@ -20,12 +20,14 @@ const ReCaptcha: React.FC<ReCaptchaProps> = ({ onTokenChange, reset }) => {
   }, [reset]);
 
   return (
-    <div>
-      <ReCAPTCHA
-        sitekey={process.env.NEXT_PUBLIC_SITE_KEY!}
-        onChange={onChange}
-        ref={recaptchaRef}
-      />
+    <div style={{ width: '100%', maxWidth: '300px', margin: '' }}>
+      <div style={{ transform: 'scale(0.85)', transformOrigin: '0 0' }}>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_SITE_KEY!}
+          onChange={onChange}
+          ref={recaptchaRef}
+        />
+      </div>
     </div>
   );
 };
