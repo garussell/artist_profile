@@ -108,13 +108,16 @@ export default function ProjectsPage() {
             <h1>Percussion</h1>
             <ul className="list-none space-y-4">
               {data.map((project, index) => (
-                <li key={`${project._id}-${index}`} className="relative">
+                <li key={`${project._id}-${index}`} className="relative p-2 mr-2">
+                  <Link href={`/projects/${project.slug.current}`} passHref auria-label="Link to project page">
                   <h3 
                     className={`cursor-pointer ${selectedProjectIndex === index ? 'text-gray-200' : ''}`}
                     onClick={() => handleProjectHover(index === selectedProjectIndex ? null : index)}
                   >
                     {project.name}
                   </h3>
+                  </Link>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   {selectedProjectIndex === index && (
                     <div className="mt-2">
                       <Image

@@ -64,7 +64,7 @@ export default async function Home() {
             </div>
           ))}
           {/* Contact Button */}
-          <div className="flex justify-center text-center mt-10">
+          <div className="flex justify-end text-center mt-10 p-2 mr-4">
             <div className="border-4 p-2 rounded-lg hover:bg-gray-200 hover:text-black duration-500">
               <Link href="/contact">Book a Lesson</Link>
             </div>
@@ -122,11 +122,16 @@ export default async function Home() {
                 <li key={`${feature._id}-${index}`} className="relative flex flex-col items-start">
                   <h2 className="m-0 mb-2 hover:text-gray-600 hover:scale-105 duration-500">{feature.title}</h2>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <div className="mr-8">
+                  <Image
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full object-cover mb-2"
+                    width={800}
+                    height={800}
+                    role="presentation"
+                    className="w-full object-cover mb-2 mr-2"
                   />
+                  </div>
                 </li>
               ))}
             </ul>
@@ -138,6 +143,7 @@ export default async function Home() {
       </div>
       {/* Profile Summary */}
       <section>
+        <h1 className="text-center text-4xl mt-20 mb-10">Drumming Career Summary</h1>
         <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
           {data.profileSummary.map(summary => (
             <div key={summary._id}>
@@ -177,7 +183,7 @@ export default async function Home() {
         <div className="prose prose-sky prose-sm md:prose-md lg:prose-lg p-2">
           <h2>What I Offer</h2>
           <hr className="w-full" />
-          <ul className="list-none">
+          <ul className="list-none p-2">
             {data.offerings.map((offering, index) => (
               <li key={`${offering._id}-${index}`}>
                 <h3 className="-translate-x-8 sm:-translate-x-4">{offering.title}</h3>
@@ -197,11 +203,11 @@ export default async function Home() {
           <section>
             <div className="prose mb-10">
               <h2>Services</h2>
-              <ul className="list-none">
+              <ul className="list-none p-2 mr-2">
                 {data.services.map((service, index) => (
                   <li 
                     key={`${service._id}-${index}`} 
-                    className="flex justify-between mb-2"
+                    className="flex justify-between mb-2 mr-4 -ml-4"
                   >
                     <span>{service.service}</span>
                     <span className="ml-10">{service.price}</span>

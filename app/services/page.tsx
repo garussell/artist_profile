@@ -34,7 +34,7 @@ export default async function ServicesPage() {
                 {data.services.map((service, index) => (
                   <li 
                     key={`${service._id}-${index}`} 
-                    className="flex justify-between mb-2"
+                    className="flex justify-between mb-2 -ml-2 p-2"
                   >
                     <span>{service.service}</span>
                     <span className="ml-10">{service.price}</span>
