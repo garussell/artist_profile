@@ -20,11 +20,8 @@ export default function Footer() {
               Allen Russell
             </Link>
             {/* <h2 className="mt-6 ml-2">Drums & Percussion</h2> */}
-            <div className="mt-4">
-              <ThemeToggle />
-            </div>
           </div>
-          <div className="-mt-12 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
+          <div className="sm:-mt-12 text-left sm:ml-4 sm:flex sm:flex-col sm:justify-center sm:text-right">
             <Link href="/services" className="block mb-2 hover:text-gray-400 duration-500">Services</Link>
             <Link href="/projects" className="block mb-2 hover:text-gray-400 duration-500">Projects</Link>
             <Link href="/contact" className="block mb-2 hover:text-gray-400 duration-500">Contact</Link>
@@ -42,8 +39,13 @@ export default function Footer() {
           </div>
         </div>
         <hr className="w-screen" />
-        <div className="text-center mt-8 text-sm">
-          <p>Gary Allen Russell Jr {new Date().getFullYear()} &copy;</p>
+        <div className="relative mt-8 text-sm flex items-center justify-between px-4">
+          <div className="ml-4">
+            <ThemeToggle />
+          </div>
+          <p className="absolute left-1/2 transform -translate-x-1/2">
+            Gary Allen Russell Jr {new Date().getFullYear()} &copy;
+          </p>
         </div>
       </div>
     </footer>
