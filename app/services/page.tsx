@@ -8,13 +8,17 @@ import Image from 'next/image';
 import profilePic from '../../public/profilePic.png';
 
 const fetchData = async (): Promise<ServicesProps> => {
-  const services = await client.fetch(`*[_type == "services"] | order(_createdAt asc)`);
+  const services = await client.fetch(
+    `*[_type == "services"] | order(_createdAt asc)`,
+    {}, // second param: query params (empty here)
+    { cache: 'no-store' } // third param: fetch options
+  );
   return { services };
 };
 
 export default async function ServicesPage() {
   const data = await fetchData();
-
+  console.log(data, "data")
   return (
     <div className="mr-10 sm:mr-2">
       <section className="mt-10 mb-20">
