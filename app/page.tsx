@@ -14,7 +14,7 @@ const fetchData = async (): Promise<HomepageData> => {
   try {
     const [roles, profileSummary, traits, offerings, featured, services] = await Promise.all([
       client.fetch(`*[_type == "role"]`),
-      client.fetch(`*[_type == "profileSummary"]`),
+      client.fetch(`*[_type == "profileSummary"] {_id, title, content}`),
       client.fetch(`*[_type == "traits"]`),
       client.fetch(`*[_type == "offerings"]`),
       client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
@@ -143,10 +143,11 @@ export default async function Home() {
       </div>
       {/* Profile Summary */}
       <section>
-        <h1 className="text-center text-4xl mt-20 mb-10">Drumming Career Summary</h1>
+        {/* <h1 className="text-center text-4xl mt-20 mb-10">Percussionist & Educator</h1> */}
         <div className="list-none flex flex-col sm:flex-row text-center m-10 mx-auto w-3/4">
           {data.profileSummary.map(summary => (
             <div key={summary._id}>
+            <h1 className="text-center text-4xl mt-20 mb-10">{summary.title}</h1>
             <PortableText
               value={summary.content as unknown as TypedObject[]}
               components={{

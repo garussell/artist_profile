@@ -8,10 +8,7 @@ export interface Role {
 
 export interface ProfileSummary {
   _id: string;
-  // content: Array<{
-  //   [x: string]: string | { text: string }[];
-  //   children: { text: string }[];
-  // }>;
+  title: string;
   content: TypedObject[];
 }
 
