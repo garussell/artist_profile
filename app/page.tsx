@@ -1,4 +1,4 @@
-"use server";
+export const dynamic = 'force-dynamic';
 
 import React from 'react';
 import { PortableText } from '@portabletext/react';
@@ -13,12 +13,12 @@ import profilePic from '../public/profilePic.png';
 const fetchData = async (): Promise<HomepageData> => {
   try {
     const [roles, profileSummary, traits, offerings, featured, services] = await Promise.all([
-      client.fetch(`*[_type == "role"]`, {}, { cache: 'no-store' }),
-      client.fetch(`*[_type == "profileSummary"]`, {}, { cache: 'no-store' }),
-      client.fetch(`*[_type == "traits"]`, {}, { cache: 'no-store' }),
-      client.fetch(`*[_type == "offerings"]`, {}, { cache: 'no-store' }),
-      client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`, {}, { cache: 'no-store' }),
-      client.fetch(`*[_type == "services"] | order(_createdAt asc)`, {}, { cache: 'no-store' }),
+      client.fetch(`*[_type == "role"]`),
+      client.fetch(`*[_type == "profileSummary"]`),
+      client.fetch(`*[_type == "traits"]`),
+      client.fetch(`*[_type == "offerings"]`),
+      client.fetch(`*[_type == "featured"] {title, "image": image.asset->url}`),
+      client.fetch(`*[_type == "services"] | order(_createdAt asc)`),
     ]);
     
     return {
